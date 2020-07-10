@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum CardType
+{
+	PartyHat,
+	Orphans,
+	NoMove
+}
+
 public class CardManager : MonoBehaviour
 {
 	public Text timerText;
@@ -13,7 +20,7 @@ public class CardManager : MonoBehaviour
 	public List<Card> playerCards = new List<Card>();
 
 	[SerializeField]
-	private float drawInterval = 30f;
+	private float drawInterval = 10f;
 	private float timeRemaining;
 	[SerializeField]
 	private int maxPlayerCards = 1;
@@ -25,6 +32,8 @@ public class CardManager : MonoBehaviour
 	void Start()
 	{
 		timeRemaining = drawInterval;
+
+		currentCards.AddRange(allCards);
 	}
 
 	void Update()

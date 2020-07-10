@@ -151,20 +151,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1578858777}
   allCards:
-  - name: Party Hat
+  - cardType: 0
+    name: Party Hat
     image: {fileID: 0}
-    desc: 'Everyone gets a '
-  - name: 
+    desc: Everyone gets a cool hat.
+  - cardType: 1
+    name: Only Orphans
     image: {fileID: 0}
-    desc: 
-  - name: 
+    desc: Everyone becomes orphan for chris.
+  - cardType: 2
+    name: Okay Boomer
     image: {fileID: 0}
-    desc: 
+    desc: Become so fat you can't move.
   activePlayerCards: []
   activeRandomCards: []
   currentCards: []
   playerCards: []
-  drawInterval: 30
+  drawInterval: 10
   maxPlayerCards: 1
   maxRandomCards: 1
 --- !u!4 &422199943
