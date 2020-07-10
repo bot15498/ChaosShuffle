@@ -150,9 +150,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1578858777}
-  allCards: []
-  currPlayerCards: []
-  currRandomCards: []
+  allCards:
+  - name: Party Hat
+    image: {fileID: 0}
+    desc: 'Everyone gets a '
+  - name: 
+    image: {fileID: 0}
+    desc: 
+  - name: 
+    image: {fileID: 0}
+    desc: 
+  activePlayerCards: []
+  activeRandomCards: []
   currentCards: []
   playerCards: []
   drawInterval: 30
