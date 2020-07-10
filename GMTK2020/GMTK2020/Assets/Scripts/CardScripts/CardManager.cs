@@ -13,6 +13,7 @@ public enum CardType
 public class CardManager : MonoBehaviour
 {
 	public Text timerText;
+	public GameObject cardUIHolder;
 	public List<Card> allCards = new List<Card>();
 	public List<Card> activePlayerCards = new List<Card>();
 	public List<Card> activeRandomCards = new List<Card>();
@@ -22,10 +23,6 @@ public class CardManager : MonoBehaviour
 	[SerializeField]
 	private float drawInterval = 10f;
 	private float timeRemaining;
-	[SerializeField]
-	private int maxPlayerCards = 1;
-	[SerializeField]
-	private int maxRandomCards = 1;
 
 	private List<UpdateableEntity> observers = new List<UpdateableEntity>();
 
@@ -52,10 +49,7 @@ public class CardManager : MonoBehaviour
 	{
 		// For when the player wants to play a card
 		activePlayerCards.Add(card);
-		if(activePlayerCards.Count > maxPlayerCards)
-		{
-			activePlayerCards.RemoveAt(0);
-		}
+		cardUIHolder.GetComponent<CardUIHolder>().AddCard(card);
 		BroadcastUpdate();
 	}
 
@@ -65,11 +59,13 @@ public class CardManager : MonoBehaviour
 		int idx = Random.Range(0, currentCards.Count);
 		Card currRandomCard = currentCards[idx];
 		activeRandomCards.Add(currRandomCard);
-		if (activeRandomCards.Count > maxRandomCards)
-		{
-			activeRandomCards.RemoveAt(0);
-		}
+		cardUIHolder.GetComponent<CardUIHolder>().AddCard(currRandomCard);
 		BroadcastUpdate();
+	}
+
+	private void ShowNewCard()
+	{
+
 	}
 
 	public void BroadcastUpdate()

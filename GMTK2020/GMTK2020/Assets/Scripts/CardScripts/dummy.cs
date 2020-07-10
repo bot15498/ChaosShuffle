@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class dummy : MonoBehaviour, UpdateableEntity
 {
+	public CardManager cardManager;
+
 	public void ReceiveUpdate(List<Card> activeCards)
 	{
 		foreach(Card c in activeCards)
@@ -15,8 +17,8 @@ public class dummy : MonoBehaviour, UpdateableEntity
 	// Start is called before the first frame update
 	void Start()
     {
-        
-    }
+		cardManager.AddObserver(this);
+	}
 
     // Update is called once per frame
     void Update()
