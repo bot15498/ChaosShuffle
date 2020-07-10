@@ -41,14 +41,26 @@ public class CardManager : MonoBehaviour
 
 	public void PlayCard(Card card)
 	{
+		// For when the player wants to play a card
+		activePlayerCards.Add(card);
+		if(activePlayerCards.Count > maxPlayerCards)
+		{
+			activePlayerCards.RemoveAt(0);
+		}
 		BroadcastUpdate();
 	}
 
 	private void DrawNewCard()
 	{
+		// For when env wants to draw new card.
 		int idx = Random.Range(0, currentCards.Count);
 		Card currRandomCard = currentCards[idx];
-		PlayCard(currRandomCard);
+		activeRandomCards.Add(currRandomCard);
+		if (activeRandomCards.Count > maxRandomCards)
+		{
+			activeRandomCards.RemoveAt(0);
+		}
+		BroadcastUpdate();
 	}
 
 	public void BroadcastUpdate()
