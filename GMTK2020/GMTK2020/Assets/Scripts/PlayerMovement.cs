@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool useArrowKeys = false;
+    public bool mirrored = false;
     public float speed;
     Rigidbody2D playerRigidbody;
     // Start is called before the first frame update
@@ -21,8 +23,24 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        float h = 0f;
+        float v = 0f;
+        if(!useArrowKeys)
+        {
+            h = Input.GetAxisRaw("Horizontal");
+            v = Input.GetAxisRaw("Vertical");
+        }
+        else
+        {
+            h = Input.GetAxisRaw("Horizontal2");
+            v = Input.GetAxisRaw("Vertical2");
+        }
+
+        if(mirrored)
+        {
+            h = h * -1;
+            v = v * -1;
+        }
 
         playerRigidbody.velocity = new Vector2(h * speed, v * speed);
     }

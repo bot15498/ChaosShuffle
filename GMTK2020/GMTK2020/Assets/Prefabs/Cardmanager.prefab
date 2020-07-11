@@ -291,4 +291,4 @@ MonoBehaviour:
   activeEnvCards: []
   currEnvCards: []
   currPlayerCards: []
-  drawInterval: 5
+  drawInterval: 30

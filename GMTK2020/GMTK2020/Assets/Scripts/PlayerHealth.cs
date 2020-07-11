@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour, UpdateableEntity
+public class PlayerHealth : MonoBehaviour
 {
     public float MaxHealth;
     private float currentHealth;
@@ -52,16 +52,4 @@ public class PlayerHealth : MonoBehaviour, UpdateableEntity
     {
 
     }
-
-    public void ReceiveUpdate(Card activeCard)
-    {
-        switch(activeCard.cardType)
-		{
-			case CardType.PlayerIncreaseHealth:
-				AddMaxHealth(1);
-				break;
-		}
-    }
-
-
 }

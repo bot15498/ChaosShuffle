@@ -83,6 +83,15 @@ public class CardManager : MonoBehaviour
 			timeRemaining = drawInterval;
 			DrawNewCard();
 		}
+
+        // DEBUGGING
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            Card testCard = new Card(CardType.PlayerDamageIncrease, "test", "test");
+            Card testCard2 = new Card(CardType.PlayerFireRateIncrease, "test", "test");
+            BroadcastUpdate(testCard);
+            BroadcastUpdate(testCard2);
+        }
 	}
 
 	public void PlayCard(Card card)
