@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 
-    public int behaviorValue;
+    public int behaviorValue = 1;
     public float speed;
     Transform playerTransform;
     public float RetreatDistance;

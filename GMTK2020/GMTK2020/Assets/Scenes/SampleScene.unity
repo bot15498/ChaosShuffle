@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1352,6 +1352,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 683007680405711544, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 683007680405711544, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49dee01cffc6ade448d3023c5c0fa3e3, type: 3}
 --- !u!1 &1516921693 stripped
@@ -1439,6 +1449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ec2ea95e3e54f4eb6d2a791c9c6b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useArrowKeys: 0
+  mirrored: 0
   speed: 5
 --- !u!212 &1649080679
 SpriteRenderer:
