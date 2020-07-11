@@ -6,7 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public bool useArrowKeys = false;
     public bool mirrored = false;
+    public bool icyFloor = false;
     public float speed;
+    public float icySpeed = 3.5f;
     Rigidbody2D playerRigidbody;
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,15 @@ public class PlayerMovement : MonoBehaviour
             v = v * -1;
         }
 
-        playerRigidbody.velocity = new Vector2(h * speed, v * speed);
+        if(icyFloor)
+        {
+            playerRigidbody.drag = 0.5f;
+            Vector2 PlayerMove = new Vector2(h, v);
+            playerRigidbody.AddForce(PlayerMove.normalized * icySpeed);
+        }
+        else
+        {
+            playerRigidbody.velocity = new Vector2(h * speed, v * speed);
+        }
     }
 }

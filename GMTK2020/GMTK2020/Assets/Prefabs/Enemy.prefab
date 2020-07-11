@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6477299365143572315}
   - component: {fileID: 9099244938055858584}
   - component: {fileID: -6451458177099829849}
+  - component: {fileID: 8060134212267441851}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -108,8 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b49b757adef3e4ba1926dbabb6f814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icyfloor: 0
   behaviorValue: 0
   speed: 0
+  icySpeed: 3
   RetreatDistance: 0
   stopDistance: 0
 --- !u!50 &-6451458177099829849
@@ -133,3 +136,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8060134212267441851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6987870173537280758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112e958d891991140a047605a882dd93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -562,7 +562,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useArrowKeys: 0
   mirrored: 0
+  icyFloor: 0
   speed: 5
+  icySpeed: 3.5
 --- !u!212 &1315590222
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -865,6 +867,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6451458177099829849, guid: 36fb541d3601d29439fcd5c9e695e401,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6987870173537280758, guid: 36fb541d3601d29439fcd5c9e695e401,
         type: 3}
       propertyPath: m_Name
@@ -933,12 +940,27 @@ PrefabInstance:
     - target: {fileID: 9099244938055858584, guid: 36fb541d3601d29439fcd5c9e695e401,
         type: 3}
       propertyPath: behaviorValue
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9099244938055858584, guid: 36fb541d3601d29439fcd5c9e695e401,
         type: 3}
       propertyPath: speed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099244938055858584, guid: 36fb541d3601d29439fcd5c9e695e401,
+        type: 3}
+      propertyPath: icySpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099244938055858584, guid: 36fb541d3601d29439fcd5c9e695e401,
+        type: 3}
+      propertyPath: RetreatDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099244938055858584, guid: 36fb541d3601d29439fcd5c9e695e401,
+        type: 3}
+      propertyPath: stopDistance
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36fb541d3601d29439fcd5c9e695e401, type: 3}
@@ -1062,22 +1084,22 @@ PrefabInstance:
     - target: {fileID: 683007680405711544, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
         type: 3}
       propertyPath: m_ReferenceResolution.x
-      value: 1920
+      value: 1280
       objectReference: {fileID: 0}
     - target: {fileID: 683007680405711544, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
         type: 3}
       propertyPath: m_ReferenceResolution.y
-      value: 1080
+      value: 720
       objectReference: {fileID: 0}
     - target: {fileID: 186918727, guid: 49dee01cffc6ade448d3023c5c0fa3e3, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 320309634, guid: 49dee01cffc6ade448d3023c5c0fa3e3, type: 3}
+    - target: {fileID: 1789887772, guid: 49dee01cffc6ade448d3023c5c0fa3e3, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1789887772, guid: 49dee01cffc6ade448d3023c5c0fa3e3, type: 3}
+    - target: {fileID: 320309634, guid: 49dee01cffc6ade448d3023c5c0fa3e3, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

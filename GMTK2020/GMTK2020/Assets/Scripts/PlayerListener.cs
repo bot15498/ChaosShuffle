@@ -48,8 +48,13 @@ public class PlayerListener : MonoBehaviour, UpdateableEntity
                 wepon.fireRate -= 0.1f;
                 break;
             case CardType.EveryoneSlow:
+                movement.speed += 1f;
+                movement.icySpeed += 0.6f;
                 break;
             case CardType.EveryoneFast:
+                break;
+            case CardType.EveryoneIceFloor:
+                movement.icyFloor = !movement.icyFloor;
                 break;
         }
     }
