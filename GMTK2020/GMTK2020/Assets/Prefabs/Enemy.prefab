@@ -289,6 +289,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   following: 1
+  snakeMovement: 0
+  canMove: 1
   icyfloor: 0
   behaviorValue: 0
   speed: 0
@@ -315,7 +317,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8060134212267441851
 MonoBehaviour:
   m_ObjectHideFlags: 0
