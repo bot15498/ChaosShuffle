@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
+    public bool richochet;
     public float damage;
     public float BulletSpeed;
     Rigidbody2D rb;
@@ -12,6 +13,7 @@ public class BulletBehavior : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * BulletSpeed;
+        richochet = false;
     }
 
     // Update is called once per frame
@@ -27,9 +29,20 @@ public class BulletBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<EnemyHealth>() != null)
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.GetComponent<EnemyHealth>() != null)
         {
-            collision.GetComponent<EnemyHealth>().takeDamage(damage);
+            collision.gameObject.GetComponent<EnemyHealth>().takeDamage(damage);
+            Destroy(gameObject);
+        }
+
+        if (richochet == false)
+        {
             Destroy(gameObject);
         }
     }
