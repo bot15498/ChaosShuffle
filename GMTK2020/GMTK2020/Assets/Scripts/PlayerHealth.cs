@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, UpdateableEntity
 {
     public float MaxHealth;
     private float currentHealth;
@@ -20,9 +20,19 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
-    public void AddHealth(float healthToAdd)
+    public void addHealth(float healthToAdd)
     {
+        currentHealth += healthToAdd;
+        if (currentHealth >= MaxHealth)
+        {
+            currentHealth = MaxHealth;
+        }
+    }
 
+    public void AddMaxHealth(float healthToAdd)
+    {
+        MaxHealth += healthToAdd;
+        currentHealth += healthToAdd;
     }
     public void MinusHealth(float healhToMinus)
     {
@@ -40,6 +50,14 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
 
+    }
+
+    public void ReceiveUpdate(List<Card> activeCards)
+    {
+        foreach (Card c in activeCards)
+        {
+            Debug.Log(c.name + ", " + c.desc);
+        }
     }
 
 

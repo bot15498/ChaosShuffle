@@ -34,7 +34,9 @@ public class CardManager : MonoBehaviour
 		timerText.text = ((int) timeRemaining).ToString();
 		if(timeRemaining <= 0)
 		{
+            
 			timeRemaining = drawInterval;
+            Time.timeScale = 0;
 			DrawNewCard();
 		}
 	}
