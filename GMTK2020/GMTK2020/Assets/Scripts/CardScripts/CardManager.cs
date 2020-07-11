@@ -30,7 +30,10 @@ public class CardManager : MonoBehaviour
 	{
 		timeRemaining = drawInterval;
 
-		currentCards.AddRange(allCards);
+		foreach(Card card in allCards)
+		{
+			currentCards.Add(card.MakeCopy());
+		}
 	}
 
 	void Update()
@@ -58,7 +61,14 @@ public class CardManager : MonoBehaviour
 		// For when env wants to draw new card.
 		int idx = Random.Range(0, currentCards.Count);
 		Card currRandomCard = currentCards[idx];
-		activeRandomCards.Add(currRandomCard);
+		if(activeRandomCards.Contains(currRandomCard))
+		{
+			currRandomCard.count++;
+		}
+		else
+		{
+			activeRandomCards.Add(currRandomCard);
+		}
 		cardUIHolder.GetComponent<CardUIHolder>().AddCard(currRandomCard);
 		BroadcastUpdate();
 	}

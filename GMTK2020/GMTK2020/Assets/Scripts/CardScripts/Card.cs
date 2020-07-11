@@ -10,6 +10,7 @@ public class Card
 	public string name;
 	public Sprite image;
 	public string desc;
+	public int count = 1;
 
 	public Card(CardType cardType, string name, string desc, Sprite image)
 	{
@@ -25,5 +26,10 @@ public class Card
 		this.name = name;
 		this.desc = desc;
 		this.image = null;
+	}
+
+	public Card MakeCopy()
+	{
+		return new Card(cardType, name, desc, image);
 	}
 }

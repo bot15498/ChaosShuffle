@@ -206,14 +206,17 @@ MonoBehaviour:
     name: Party Hat
     image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
     desc: Everyone gets a cool hat.
+    count: 1
   - cardType: 1
     name: Only Orphans
     image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
     desc: Everyone becomes orphan for chris.
+    count: 1
   - cardType: 2
     name: Okay Boomer
     image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
     desc: Become so fat you can't move.
+    count: 1
   activePlayerCards: []
   activeRandomCards: []
   currentCards: []
