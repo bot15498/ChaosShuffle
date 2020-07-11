@@ -8,6 +8,8 @@ public class EnemyMovement : MonoBehaviour
     public int behaviorValue;
     public float speed;
     Transform playerTransform;
+    public float RetreatDistance;
+    public float stopDistance;
     Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,15 @@ public class EnemyMovement : MonoBehaviour
 
     void DistanceFollow()
     {
+        if(Vector2.Distance(transform.position,playerTransform.position) > stopDistance){
+            transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
 
+        }  else if (Vector2.Distance(transform.position,playerTransform.position) < stopDistance && Vector2.Distance(transform.position,playerTransform.position) > RetreatDistance)
+        {
+            transform.position = this.transform.position;
+        }else if (Vector2.Distance(transform.position,playerTransform.position) < RetreatDistance) 
+        {
+            transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, -speed * Time.deltaTime);
+        }
     }
 }
