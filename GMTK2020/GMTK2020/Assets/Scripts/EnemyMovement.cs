@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public bool following = true;
     public bool icyfloor = false;
     public int behaviorValue = 1;
     public float speed = 2.5f;
@@ -22,17 +23,20 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (behaviorValue)
+        if(following)
         {
-            case 2:
-                DistanceFollow();
-                break;
-            case 1:
-                pursue();
-                break;
-            default:
+            switch (behaviorValue)
+            {
+                case 2:
+                    DistanceFollow();
+                    break;
+                case 1:
+                    pursue();
+                    break;
+                default:
 
-                break;
+                    break;
+            }
         }
     }
 
