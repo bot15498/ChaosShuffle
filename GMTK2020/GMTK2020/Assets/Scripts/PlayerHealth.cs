@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, UpdateableEntity
 {
-	public float baseHealth;
-	[SerializeField]
-	private float MaxHealth;
-	[SerializeField]
-	private float currentHealth;
+    public float MaxHealth;
+    private float currentHealth;
     public bool CanTakeDamage;
     // Start is called before the first frame update
     void Start()
     {
-		FindObjectOfType<CardManager>().AddObserver(this);
-		MaxHealth = baseHealth;
         currentHealth = MaxHealth;
         CanTakeDamage = true;
     }
@@ -62,14 +57,7 @@ public class PlayerHealth : MonoBehaviour, UpdateableEntity
     {
         foreach (Card c in activeCards)
         {
-            switch(c.cardType)
-			{
-				case CardType.IncreasePlayerHealth:
-					//update max health to be the difference of what was added versus what will be added.
-					// c.count + basehealth is amount to increase max health by, max health is current maxhealth
-					AddMaxHealth(c.count + baseHealth - MaxHealth);
-					break;
-			}
+            Debug.Log(c.name + ", " + c.desc);
         }
     }
 

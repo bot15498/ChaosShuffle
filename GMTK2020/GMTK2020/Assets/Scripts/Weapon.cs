@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 	public bool canShoot = true;
+    public float damage;
     public float fireRate;
     public GameObject bulletToSpawn;
     public Transform gunBarrel;
@@ -24,17 +25,32 @@ public class Weapon : MonoBehaviour
         timer += Time.deltaTime;
         if (canShoot && Input.GetKeyDown(KeyCode.Mouse0) && timer >= fireRate)
         {
-            
-            Instantiate(bulletToSpawn, gunBarrel.position, gunBarrel.rotation);
+            GameObject spawnedBullet;   
+            spawnedBullet = Instantiate(bulletToSpawn, gunBarrel.position, gunBarrel.rotation);
+            BulletBehavior Bbehave = spawnedBullet.GetComponent<BulletBehavior>();
+            Bbehave.updateDamage(damage);
             timer = 0;
         }
     }
 
 
+    public void ChangeFireRate(float fireRateChange)
+    {
+        fireRate += fireRateChange;
+    }
+    public void ChangeDamage(float damageChange)
+    {
+        damage += damageChange;
+    }
 
     void Recoil()
     {
         Vector3 force = -gunBarrel.transform.right * recoilForce;
         rb.AddForce(force);
+    }
+
+    public void changeBulletType(GameObject bullettoSwitch)
+    {
+        bulletToSpawn = bullettoSwitch;
     }
 }
