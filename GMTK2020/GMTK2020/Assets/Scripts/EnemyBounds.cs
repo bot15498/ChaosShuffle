@@ -23,7 +23,6 @@ public class EnemyBounds : MonoBehaviour
         if (collision.tag == "Player")
         {
             follow = true;
-            Debug.Log("enter");
         }
     }
 
@@ -31,7 +30,6 @@ public class EnemyBounds : MonoBehaviour
     {
         if(collision.tag == "Enemy")
         {
-            Debug.Log("enemy inside " + follow);
             if (follow)
             {
                 collision.gameObject.GetComponent<EnemyMovement>().following = true;
@@ -48,7 +46,6 @@ public class EnemyBounds : MonoBehaviour
         if (collision.tag == "Player")
         {
             follow = false;
-            Debug.Log("left");
         }
     }
 }

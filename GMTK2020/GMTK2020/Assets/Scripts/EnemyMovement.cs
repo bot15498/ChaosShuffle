@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public bool following = true;
+    public bool snakeMovement = false;
+    public bool canMove = true;
     public bool icyfloor = false;
     public int behaviorValue = 1;
     public float speed = 2.5f;
@@ -23,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(following)
+        if(canMove && following)
         {
             switch (behaviorValue)
             {
@@ -40,6 +42,12 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    public void StopMoving()
+    {
+        rb2d.velocity = Vector2.zero;
+        rb2d.angularVelocity = 0f;
+    }
+
 
     void pursue()
     {
@@ -53,7 +61,14 @@ public class EnemyMovement : MonoBehaviour
         {
             rb2d.drag = 0f; ;
             Vector2 PlayerMove = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
-            rb2d.MovePosition(PlayerMove);
+            if(snakeMovement)
+            {
+                rb2d.MovePosition(PlayerMove.normalized);
+            }
+            else
+            {
+                rb2d.MovePosition(PlayerMove);
+            }
         }
     }
 

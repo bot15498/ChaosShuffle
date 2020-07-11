@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public bool useArrowKeys = false;
+    public bool canControlMove = true;
     public bool mirrored = false;
     public bool icyFloor = false;
+    public bool snakeMovement = false;
     public float speed;
     public float icySpeed = 3.5f;
     public Transform CursorDirection;
@@ -14,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     bool facingRight;
     Rigidbody2D playerRigidbody;
     private SpriteRenderer sr;
+    private float lastValidH = 1f;
+    private float lastValidV = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,22 +49,38 @@ public class PlayerMovement : MonoBehaviour
             v = Input.GetAxisRaw("Vertical2");
         }
 
-        if(mirrored)
+        if (snakeMovement && Mathf.Abs(h) < 0.01f && Mathf.Abs(v) < 0.01f)
+        {
+            h = lastValidH;
+            v = lastValidV;
+        }
+
+        if (mirrored)
         {
             h = h * -1;
             v = v * -1;
         }
+        if (canControlMove)
+        {
+            if (icyFloor)
+            {
+                playerRigidbody.drag = 0.5f;
+                Vector2 PlayerMove = new Vector2(h, v);
+                playerRigidbody.AddForce(PlayerMove.normalized * icySpeed);
+            }
+            else
+            {
+                playerRigidbody.velocity = new Vector2(h * speed, v * speed);
+            }
+        }
+        lastValidH = h;
+        lastValidV = v;
+    }
 
-        if(icyFloor)
-        {
-            playerRigidbody.drag = 0.5f;
-            Vector2 PlayerMove = new Vector2(h, v);
-            playerRigidbody.AddForce(PlayerMove.normalized * icySpeed);
-        }
-        else
-        {
-            playerRigidbody.velocity = new Vector2(h * speed, v * speed);
-        }
+    public void StopMoving()
+    {
+        playerRigidbody.velocity = Vector2.zero;
+        playerRigidbody.angularVelocity = 0f;
     }
 
     void WeaponFlipping()

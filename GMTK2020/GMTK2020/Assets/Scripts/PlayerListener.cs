@@ -9,6 +9,8 @@ public class PlayerListener : MonoBehaviour, UpdateableEntity
     private PlayerMovement movement;
     private CardManager cardManager;
 
+    private bool wallLava = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,14 +50,36 @@ public class PlayerListener : MonoBehaviour, UpdateableEntity
                 wepon.fireRate -= 0.1f;
                 break;
             case CardType.EveryoneSlow:
-                movement.speed += 1f;
-                movement.icySpeed += 0.6f;
+                movement.speed -= 1f;
+                movement.icySpeed -= 0.6f;
+                if(movement.speed < 1f) { movement.speed = 1f; }
+                if(movement.icySpeed < 0.5f) { movement.icySpeed = 0.5f; }
                 break;
             case CardType.EveryoneFast:
+                movement.speed += 1f;
+                movement.icySpeed += 0.6f;
                 break;
             case CardType.EveryoneIceFloor:
                 movement.icyFloor = !movement.icyFloor;
                 break;
+            case CardType.EnvironmentLavaWalls:
+                wallLava = !wallLava;
+                break;
+            case CardType.EveryoneNoMovement:
+                movement.canControlMove = !movement.canControlMove;
+                movement.StopMoving();
+                break;
+            case CardType.EveryoneSnakeMovement:
+                movement.snakeMovement = !movement.snakeMovement;
+                break;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(wallLava && collision.gameObject.tag == "Wall")
+        {
+            health.MinusHealth(1);
         }
     }
 }
