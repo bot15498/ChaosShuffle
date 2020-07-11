@@ -6,18 +6,25 @@ public class PlayerMovement : MonoBehaviour
 {
     public bool useArrowKeys = false;
     public bool mirrored = false;
+    public Transform CursorDirection;
     public float speed;
+    public SpriteRenderer WeaponSprite;
+    bool facingRight;
     Rigidbody2D playerRigidbody;
+    private SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        facingRight = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
+        WeaponFlipping();
     }
 
 
@@ -44,4 +51,40 @@ public class PlayerMovement : MonoBehaviour
 
         playerRigidbody.velocity = new Vector2(h * speed, v * speed);
     }
+
+    void WeaponFlipping()
+    {
+        //current mouse position
+        var mousePos = Input.mousePosition;
+        mousePos.z = 10;
+        var delta = Camera.main.ScreenToWorldPoint(mousePos) - transform.position;
+
+        //CharacterFlipping
+        if (delta.x >= 0 && !facingRight)
+        { // mouse is on right side of player
+
+            /*Vector3 newScale = transform.localScale;
+            newScale.x = 1;
+            transform.localScale = newScale;
+            CursorDirection.transform.localScale = newScale;*/
+            sr.flipX = false;
+            WeaponSprite.flipY = false;
+            facingRight = true;
+
+        }
+        else if (delta.x < 0 && facingRight)
+        { // mouse is on left side
+           /* Vector3 newScale = transform.localScale;
+            newScale.x = -1;
+            transform.localScale = newScale;
+            CursorDirection.transform.localScale = newScale;*/
+            sr.flipX = true;
+            WeaponSprite.flipY = true;
+
+            
+            facingRight = false;
+        }
+    }
+
+
 }
