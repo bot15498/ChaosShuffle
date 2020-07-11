@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class dummy : MonoBehaviour, UpdateableEntity
 {
-	public CardManager cardManager;
+	private CardManager cardManager;
 
 	public void ReceiveUpdate(List<Card> activeCards)
 	{
@@ -17,6 +17,7 @@ public class dummy : MonoBehaviour, UpdateableEntity
 	// Start is called before the first frame update
 	void Start()
     {
+		cardManager = FindObjectOfType<CardManager>();
 		cardManager.AddObserver(this);
 	}
 

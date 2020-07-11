@@ -7,18 +7,21 @@ public enum CardType
 {
 	PartyHat,
 	Orphans,
-	NoMove
+	NoMove,
+	IncreasePlayerHealth,
+	DecreasePlayerHealth
 }
 
 public class CardManager : MonoBehaviour
 {
 	public Text timerText;
 	public GameObject cardUIHolder;
-	public List<Card> allCards = new List<Card>();
+	public List<Card> allEnvCards = new List<Card>();
+	public List<Card> allPlayerCards = new List<Card>();
 	public List<Card> activePlayerCards = new List<Card>();
-	public List<Card> activeRandomCards = new List<Card>();
-	public List<Card> currentCards = new List<Card>();
-	public List<Card> playerCards = new List<Card>();
+	public List<Card> activeEnvCards = new List<Card>();
+	public List<Card> currEnvCards = new List<Card>();
+	public List<Card> currPlayerCards = new List<Card>();
 
 	[SerializeField]
 	private float drawInterval = 10f;
@@ -30,22 +33,20 @@ public class CardManager : MonoBehaviour
 	{
 		timeRemaining = drawInterval;
 
-		foreach(Card card in allCards)
+		foreach(Card card in allEnvCards)
 		{
-			currentCards.Add(card.MakeCopy());
+			currEnvCards.Add(card.MakeCopy());
 		}
 	}
 
 	void Update()
 	{
-		// updates UI and draws new card every set amount of time.
+		// updates UI and draws new card every set amount of time.a
 		timeRemaining -= Time.deltaTime;
 		timerText.text = ((int) timeRemaining).ToString();
 		if(timeRemaining <= 0)
-		{
-            
+		{ 
 			timeRemaining = drawInterval;
-            Time.timeScale = 0;
 			DrawNewCard();
 		}
 	}
@@ -61,31 +62,26 @@ public class CardManager : MonoBehaviour
 	private void DrawNewCard()
 	{
 		// For when env wants to draw new card.
-		int idx = Random.Range(0, currentCards.Count);
-		Card currRandomCard = currentCards[idx];
-		if(activeRandomCards.Contains(currRandomCard))
+		int idx = Random.Range(0, currEnvCards.Count);
+		Card currRandomCard = currEnvCards[idx];
+		if(activeEnvCards.Contains(currRandomCard))
 		{
 			currRandomCard.count++;
 		}
 		else
 		{
-			activeRandomCards.Add(currRandomCard);
+			activeEnvCards.Add(currRandomCard);
 		}
 		cardUIHolder.GetComponent<CardUIHolder>().AddCard(currRandomCard);
 		BroadcastUpdate();
 	}
 
-	private void ShowNewCard()
-	{
-
-	}
-
 	public void BroadcastUpdate()
 	{
 		// Merge lists together and send
-		List<Card> cards = new List<Card>(activePlayerCards.Count + activeRandomCards.Count);
+		List<Card> cards = new List<Card>(activePlayerCards.Count + activeEnvCards.Count);
 		cards.AddRange(activePlayerCards);
-		cards.AddRange(activeRandomCards);
+		cards.AddRange(activeEnvCards);
 		// send update
 		foreach (UpdateableEntity e in observers)
 		{
