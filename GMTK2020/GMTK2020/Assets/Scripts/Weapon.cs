@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+	public bool canShoot = true;
     public float fireRate;
     public GameObject bulletToSpawn;
     public Transform gunBarrel;
@@ -21,7 +22,7 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Mouse0) && timer >= fireRate)
+        if (canShoot && Input.GetKeyDown(KeyCode.Mouse0) && timer >= fireRate)
         {
             
             Instantiate(bulletToSpawn, gunBarrel.position, gunBarrel.rotation);
