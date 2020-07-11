@@ -63,22 +63,22 @@ public class PlayerMovement : MonoBehaviour
         if (delta.x >= 0 && !facingRight)
         { // mouse is on right side of player
 
-            /*Vector3 newScale = transform.localScale;
+            Vector3 newScale = transform.localScale;
             newScale.x = 1;
             transform.localScale = newScale;
-            CursorDirection.transform.localScale = newScale;*/
-            sr.flipX = false;
+            CursorDirection.transform.localScale = newScale;
+           // sr.flipX = false;
             WeaponSprite.flipY = false;
             facingRight = true;
 
         }
         else if (delta.x < 0 && facingRight)
         { // mouse is on left side
-           /* Vector3 newScale = transform.localScale;
+            Vector3 newScale = transform.localScale;
             newScale.x = -1;
             transform.localScale = newScale;
-            CursorDirection.transform.localScale = newScale;*/
-            sr.flipX = true;
+            CursorDirection.transform.localScale = newScale;
+            //sr.flipX = true;
             WeaponSprite.flipY = true;
 
             
