@@ -33,7 +33,7 @@ public class CardManager : MonoBehaviour
 	{
 		timeRemaining = drawInterval;
 
-		foreach(Card card in allEnvCards)
+		foreach (Card card in allEnvCards)
 		{
 			currEnvCards.Add(card.MakeCopy());
 		}
@@ -43,9 +43,9 @@ public class CardManager : MonoBehaviour
 	{
 		// updates UI and draws new card every set amount of time.a
 		timeRemaining -= Time.deltaTime;
-		timerText.text = ((int) timeRemaining).ToString();
-		if(timeRemaining <= 0)
-		{ 
+		timerText.text = ((int)timeRemaining).ToString();
+		if (timeRemaining <= 0)
+		{
 			timeRemaining = drawInterval;
 			DrawNewCard();
 		}
@@ -53,10 +53,12 @@ public class CardManager : MonoBehaviour
 
 	public void PlayCard(Card card)
 	{
-		// For when the player wants to play a card
-		activePlayerCards.Add(card);
-		cardUIHolder.GetComponent<CardUIHolder>().AddCard(card);
-		BroadcastUpdate();
+		// For when the player wants to add a card to the pool
+		currEnvCards.Add(card);
+
+		//activePlayerCards.Add(card);
+		//cardUIHolder.GetComponent<CardUIHolder>().AddCard(card);
+		//BroadcastUpdate();
 	}
 
 	private void DrawNewCard()
@@ -64,7 +66,7 @@ public class CardManager : MonoBehaviour
 		// For when env wants to draw new card.
 		int idx = Random.Range(0, currEnvCards.Count);
 		Card currRandomCard = currEnvCards[idx];
-		if(activeEnvCards.Contains(currRandomCard))
+		if (activeEnvCards.Contains(currRandomCard))
 		{
 			currRandomCard.count++;
 		}
