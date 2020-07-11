@@ -46,12 +46,6 @@ MonoBehaviour:
   timerText: {fileID: 0}
   cardUIHolder: {fileID: 0}
   allEnvCards:
-  - cardType: 0
-    name: 
-    image: {fileID: 0}
-    desc: 
-    count: -1
-    diff: 0
   - cardType: 1
     name: Surprise Attack
     image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
@@ -82,7 +76,7 @@ MonoBehaviour:
     desc: Everyone cannot use their legs to move.
     count: 1
     diff: 0
-  - cardType: 0
+  - cardType: 9
     name: Dark Theme
     image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
     desc: Environment gets darker.
@@ -98,12 +92,6 @@ MonoBehaviour:
     name: Track 2
     image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
     desc: Change background music.
-    count: 1
-    diff: 0
-  - cardType: 16
-    name: Melee Mode
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
-    desc: No one can shoot, must swing gun.
     count: 1
     diff: 0
   - cardType: 18
@@ -166,34 +154,10 @@ MonoBehaviour:
     desc: Environment gets brighter.
     count: 1
     diff: 0
-  - cardType: 35
-    name: Old School
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
-    desc: Camera becomes a CRT
-    count: 1
-    diff: 0
-  - cardType: 36
-    name: Stop Taking Selfies
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
-    desc: Part of screen is blocked
-    count: 1
-    diff: 0
-  - cardType: 37
-    name: Wavy
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
-    desc: Waaaavvvvy/
-    count: 1
-    diff: 0
-  - cardType: 38
-    name: Blurry
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
-    desc: eye machine goes brrrr.
-    count: 1
-    diff: 0
   allPlayerCards:
   - cardType: 0
     name: Player Health Up
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
+    image: {fileID: 21300000, guid: a2698b2a95078fb4696ac8ddba652df1, type: 3}
     desc: Increase player max health by 1
     count: 1
     diff: 0
@@ -245,18 +209,6 @@ MonoBehaviour:
     desc: Player bullets explode on impact.
     count: 1
     diff: 2
-  - cardType: 0
-    name: Benis Enlargement Pills
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
-    desc: Player bullets get bigger.
-    count: 1
-    diff: 1
-  - cardType: 0
-    name: Benis Shrinking Pills
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
-    desc: Player bullets get smaller.
-    count: 1
-    diff: 1
   - cardType: 22
     name: Chill, dude.
     image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
@@ -291,4 +243,4 @@ MonoBehaviour:
   activeEnvCards: []
   currEnvCards: []
   currPlayerCards: []
-  drawInterval: 30
+  drawInterval: 5

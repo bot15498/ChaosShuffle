@@ -8,6 +8,7 @@ public class ShopkeeperMenu : MonoBehaviour
 	public ShopkeeperButtons easyCardButton;
 	public ShopkeeperButtons medCardButton;
 	public ShopkeeperButtons hardCardButton;
+    public GameObject bgFilter;
 	public Text exitText;
 
 	[SerializeField]
@@ -49,6 +50,7 @@ public class ShopkeeperMenu : MonoBehaviour
 		easyCardButton.gameObject.SetActive(true);
 		medCardButton.gameObject.SetActive(true);
 		hardCardButton.gameObject.SetActive(true);
+        bgFilter.SetActive(true);
 		if (muns.currentMoney < easyCost) { easyCardButton.GetComponent<Button>().interactable = false; } else { easyCardButton.GetComponent<Button>().interactable = true; }
 		if (muns.currentMoney < medCost) { medCardButton.GetComponent<Button>().interactable = false; } else { medCardButton.GetComponent<Button>().interactable = true; }
 		if (muns.currentMoney < hardCost) { hardCardButton.GetComponent<Button>().interactable = false; } else { hardCardButton.GetComponent<Button>().interactable = true; }
@@ -74,9 +76,10 @@ public class ShopkeeperMenu : MonoBehaviour
 		easyCardButton.gameObject.SetActive(false);
 		medCardButton.gameObject.SetActive(false);
 		hardCardButton.gameObject.SetActive(false);
-	}
+        bgFilter.SetActive(false);
+    }
 
-	private int GetCost(CardDiff diff)
+    private int GetCost(CardDiff diff)
 	{
 		switch (diff)
 		{

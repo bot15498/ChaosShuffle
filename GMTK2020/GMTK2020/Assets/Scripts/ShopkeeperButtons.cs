@@ -25,12 +25,18 @@ public class ShopkeeperButtons : MonoBehaviour
 
 	public void HideCard()
 	{
-		cover.SetActive(true);
+        nameText.gameObject.SetActive(false);
+        descText.gameObject.SetActive(false);
+        image.gameObject.SetActive(false);
+        cover.SetActive(true);
 	}
 
 	public void ShowCard()
 	{
-		cover.SetActive(false);
+        nameText.gameObject.SetActive(true);
+        descText.gameObject.SetActive(true);
+        image.gameObject.SetActive(true);
+        cover.SetActive(false);
 	}
 
 	public void UpdateCard(Card card, int cost)
