@@ -53,12 +53,14 @@ public class PlayerHealth : MonoBehaviour, UpdateableEntity
 
     }
 
-    public void ReceiveUpdate(List<Card> activeCards)
+    public void ReceiveUpdate(Card activeCard)
     {
-        foreach (Card c in activeCards)
-        {
-            Debug.Log(c.name + ", " + c.desc);
-        }
+        switch(activeCard.cardType)
+		{
+			case CardType.PlayerIncreaseHealth:
+				AddMaxHealth(1);
+				break;
+		}
     }
 
 

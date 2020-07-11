@@ -5,11 +5,45 @@ using UnityEngine.UI;
 
 public enum CardType
 {
+	PlayerIncreaseHealth,
+	PlayerTakeDamage,
+	PlayerFireRateIncrease,
+	PlayerDamageIncrease,
 	PartyHat,
+	EveryoneKeepAttacking,
+	EveryoneNoDamageOnlyMoney,
+	EveryoneBouncingBullets,
+	EveryoneNoMovement,
+	EnvironmentMakeDarker,
 	Orphans,
-	NoMove,
-	IncreasePlayerHealth,
-	DecreasePlayerHealth
+	PlayerMultishot,
+	PlayerDamageGivesGold,
+	EveryoneSpinning,
+	PlayerLifesteal,
+	EnvironmentChangeMusic,
+	EveryoneMeleeMode,
+	PlayerExplosiveRounds,
+	EveryoneExplodingBodies,
+	EnvironmentLavaWalls,
+	PlayerBigBullet,
+	PlayerSmallBullet,
+	EveryoneSlow,
+	EveryoneFast,
+	EnemiesInvisible,
+	EveryoneIceFloor,
+	EnvironmentShopkeeper,
+	PlayerReverseControls,
+	PlayerArrowKeys,
+	EveryoneCarpetBomber,
+	PlayerHeatSeaking,
+	EveryoneAllDirectionShoot,
+	EveryoneSnakeMovement,
+	PlayerLoseMoneyOnHit,
+	EnvironmentMakeBrighter,
+	CameraCRT,
+	CameraSelfie,
+	CameraWavy,
+	CameraBlurry,
 }
 
 public class CardManager : MonoBehaviour
@@ -75,19 +109,15 @@ public class CardManager : MonoBehaviour
 			activeEnvCards.Add(currRandomCard);
 		}
 		cardUIHolder.GetComponent<CardUIHolder>().AddCard(currRandomCard);
-		BroadcastUpdate();
+		BroadcastUpdate(currRandomCard);
 	}
 
-	public void BroadcastUpdate()
+	public void BroadcastUpdate(Card recentlyAdded)
 	{
-		// Merge lists together and send
-		List<Card> cards = new List<Card>(activePlayerCards.Count + activeEnvCards.Count);
-		cards.AddRange(activePlayerCards);
-		cards.AddRange(activeEnvCards);
 		// send update
 		foreach (UpdateableEntity e in observers)
 		{
-			e.ReceiveUpdate(cards);
+			e.ReceiveUpdate(recentlyAdded);
 		}
 	}
 

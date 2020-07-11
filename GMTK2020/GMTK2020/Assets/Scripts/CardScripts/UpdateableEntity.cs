@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface UpdateableEntity
 {
-	void ReceiveUpdate(List<Card> activeCards);
+	void ReceiveUpdate(Card activeCard);
 }

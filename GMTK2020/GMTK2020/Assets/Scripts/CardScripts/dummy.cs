@@ -6,12 +6,9 @@ public class dummy : MonoBehaviour, UpdateableEntity
 {
 	private CardManager cardManager;
 
-	public void ReceiveUpdate(List<Card> activeCards)
+	public void ReceiveUpdate(Card activeCard)
 	{
-		foreach(Card c in activeCards)
-		{
-			Debug.Log(c.name + ", " + c.desc);
-		}
+		Debug.Log(activeCard.name + ", " + activeCard.desc);
 	}
 
 	// Start is called before the first frame update

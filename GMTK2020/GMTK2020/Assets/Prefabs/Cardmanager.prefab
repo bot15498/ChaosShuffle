@@ -45,24 +45,250 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
   cardUIHolder: {fileID: 0}
-  allCards:
+  allEnvCards:
   - cardType: 0
-    name: Party Hat
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
-    desc: Everyone gets a cool hat.
-    count: 1
+    name: 
+    image: {fileID: 0}
+    desc: 
+    count: 0
+    diff: 0
   - cardType: 1
-    name: Only Orphans
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
-    desc: Everyone becomes orphan for chris.
+    name: Surprise Attack
+    image: {fileID: 0}
+    desc: Player takes one damage
     count: 1
+    diff: 0
+  - cardType: 5
+    name: Trigger Finger
+    image: {fileID: 0}
+    desc: Everyone attacks continuously with high recoil
+    count: 1
+    diff: 0
+  - cardType: 6
+    name: Treasury
+    image: {fileID: 0}
+    desc: Attacks do no damage but give money
+    count: 1
+    diff: 0
+  - cardType: 7
+    name: Ricochet 2
+    image: {fileID: 0}
+    desc: Bullets will bounce one more time
+    count: 1
+    diff: 0
+  - cardType: 8
+    name: Frozen Bonds
+    image: {fileID: 0}
+    desc: Everyone cannot use their legs to move.
+    count: 1
+    diff: 0
+  - cardType: 0
+    name: Dark Theme
+    image: {fileID: 0}
+    desc: Environment gets darker.
+    count: 1
+    diff: 0
+  - cardType: 13
+    name: You spin me round
+    image: {fileID: 0}
+    desc: Everyone's aim goes in circles.
+    count: 1
+    diff: 0
+  - cardType: 15
+    name: Track 2
+    image: {fileID: 0}
+    desc: Change background music.
+    count: 1
+    diff: 0
+  - cardType: 16
+    name: Melee Mode
+    image: {fileID: 0}
+    desc: No one can shoot, must swing gun.
+    count: 1
+    diff: 0
+  - cardType: 18
+    name: Explosive Corpses
+    image: {fileID: 0}
+    desc: Bodies explode on death.
+    count: 1
+    diff: 0
+  - cardType: 19
+    name: The Walls Are Lava
+    image: {fileID: 0}
+    desc: Everyone takes damage on touching a wall.
+    count: 1
+    diff: 0
+  - cardType: 24
+    name: Invisible Ink
+    image: {fileID: 0}
+    desc: Enemies are invisible.
+    count: 1
+    diff: 0
+  - cardType: 25
+    name: Icy Wind
+    image: {fileID: 0}
+    desc: Floor gets slipperly for everyone.
+    count: 1
+    diff: 0
+  - cardType: 27
+    name: Mirror World
+    image: {fileID: 0}
+    desc: Player controls are reversed.
+    count: 1
+    diff: 0
+  - cardType: 28
+    name: Sweedish Special
+    image: {fileID: 0}
+    desc: Player must use arrow keys to move.
+    count: 1
+    diff: 0
+  - cardType: 29
+    name: Carpet Bomber
+    image: {fileID: 0}
+    desc: Explosions are dropped throughout the room.
+    count: 1
+    diff: 0
+  - cardType: 32
+    name: Snake
+    image: {fileID: 0}
+    desc: Everyone must keep moving in a direction.
+    count: 1
+    diff: 0
+  - cardType: 33
+    name: Hole in My Pocket
+    image: {fileID: 0}
+    desc: Player loses money when taking damage.
+    count: 1
+    diff: 0
+  - cardType: 34
+    name: Light Theme
+    image: {fileID: 0}
+    desc: Environment gets brighter.
+    count: 1
+    diff: 0
+  - cardType: 35
+    name: Old School
+    image: {fileID: 0}
+    desc: Camera becomes a CRT
+    count: 1
+    diff: 0
+  - cardType: 36
+    name: Stop Taking Selfies
+    image: {fileID: 0}
+    desc: Part of screen is blocked
+    count: 1
+    diff: 0
+  - cardType: 37
+    name: Wavy
+    image: {fileID: 0}
+    desc: Waaaavvvvy/
+    count: 1
+    diff: 0
+  - cardType: 38
+    name: Blurry
+    image: {fileID: 0}
+    desc: eye machine goes brrrr.
+    count: 1
+    diff: 0
+  allPlayerCards:
+  - cardType: 0
+    name: Player Health Up
+    image: {fileID: 0}
+    desc: Increase player max health by 1
+    count: 1
+    diff: 0
   - cardType: 2
-    name: Okay Boomer
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
-    desc: Become so fat you can't move.
+    name: Player Fire Rate Up
+    image: {fileID: 0}
+    desc: Increase player gun rate of fire.
     count: 1
+    diff: 2
+  - cardType: 3
+    name: Player Damage up
+    image: {fileID: 0}
+    desc: Increase player gun damage.
+    count: 1
+    diff: 2
+  - cardType: 4
+    name: Party Mode
+    image: {fileID: 0}
+    desc: Everyone gets a party hat.
+    count: 1
+    diff: 0
+  - cardType: 10
+    name: You Monster
+    image: {fileID: 0}
+    desc: Reskins all enemies to orphans
+    count: 1
+    diff: 0
+  - cardType: 11
+    name: Multishot
+    image: {fileID: 0}
+    desc: Player shoots one more bullet at a time.
+    count: 1
+    diff: 1
+  - cardType: 12
+    name: Pickpocket
+    image: {fileID: 0}
+    desc: Doing damage gives you more gold.
+    count: 0
+    diff: 0
+  - cardType: 14
+    name: Lifesteal
+    image: {fileID: 0}
+    desc: Player heals a portion of damage dealt.
+    count: 1
+    diff: 2
+  - cardType: 17
+    name: Explosive Rounds
+    image: {fileID: 0}
+    desc: Player bullets explode on impact.
+    count: 1
+    diff: 2
+  - cardType: 0
+    name: Benis Enlargement Pills
+    image: {fileID: 0}
+    desc: Player bullets get bigger.
+    count: 1
+    diff: 1
+  - cardType: 0
+    name: Benis Shrinking Pills
+    image: {fileID: 0}
+    desc: Player bullets get smaller.
+    count: 1
+    diff: 1
+  - cardType: 22
+    name: Chill, dude.
+    image: {fileID: 0}
+    desc: Everyone moves slower
+    count: 1
+    diff: 0
+  - cardType: 23
+    name: Adrenaline Shot
+    image: {fileID: 0}
+    desc: Everyone moves faster
+    count: 1
+    diff: 0
+  - cardType: 26
+    name: Vending Machine
+    image: {fileID: 0}
+    desc: Summon Shopkeeper to current room
+    count: 1
+    diff: 1
+  - cardType: 30
+    name: Heat Seeking
+    image: {fileID: 0}
+    desc: Player projectiles lock on a target
+    count: 1
+    diff: 1
+  - cardType: 31
+    name: Easy Mode
+    image: {fileID: 0}
+    desc: Everyone shoots in all directions.
+    count: 1
+    diff: 2
   activePlayerCards: []
-  activeRandomCards: []
-  currentCards: []
-  playerCards: []
+  activeEnvCards: []
+  currEnvCards: []
+  currPlayerCards: []
   drawInterval: 5
