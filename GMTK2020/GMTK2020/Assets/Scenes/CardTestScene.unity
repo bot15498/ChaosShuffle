@@ -120,12 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &324680454 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 683007680801515944, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 683007680554701486}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &343369829
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canShoot: 1
+  damage: 0
   fireRate: 0
   bulletToSpawn: {fileID: 6371565790324439834, guid: 675bca5674271644ebf614273176fb0f,
     type: 3}
@@ -511,9 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31eacc58e04a3147b75aa91cea9426b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 5
   MaxHealth: 5
-  currentHealth: 0
   CanTakeDamage: 0
 --- !u!50 &1315590219
 Rigidbody2D:
@@ -625,18 +618,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1578858777 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 683007679916469175, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 683007680554701486}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1586186962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,137 +1013,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: timerText
-      value: 
-      objectReference: {fileID: 1578858777}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: cardUIHolder
-      value: 
-      objectReference: {fileID: 324680454}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[0].cardType
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[0].name
-      value: Increase Max Health
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[0].desc
-      value: Increase max health of player by 1.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[0].image
-      value: 
-      objectReference: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db,
-        type: 3}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[0].cardType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[0].name
-      value: easy 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[0].desc
-      value: easy 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[0].count
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[1].count
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[2].count
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[3].count
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[5].count
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[4].count
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[5].diff
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[4].diff
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[3].diff
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[2].diff
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[2].name
-      value: med1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[3].name
-      value: med2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[1].name
-      value: easy2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[4].name
-      value: hard1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allPlayerCards.Array.data[5].name
-      value: hard2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a31316ade20ac904f9cb08cb8c094dcb, type: 3}
