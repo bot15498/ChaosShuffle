@@ -60,6 +60,9 @@ public class EnemyListener : MonoBehaviour, UpdateableEntity
             case CardType.PlayerDamageGivesGold:
                 health.dropMoneyOnDamage = !health.dropMoneyOnDamage;
                 break;
+            case CardType.PartyHat:
+                GetComponentInChildren<EnableHat>().IncreaseHatSprite();
+                break;
         }
     }
 

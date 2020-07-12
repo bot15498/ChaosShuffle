@@ -5,6 +5,7 @@ using UnityEngine.Experimental.Rendering.LWRP;
 
 public class EnableHat : MonoBehaviour
 {
+    public float scaleIncrease = 2.5f;
     public float changeRate;
     SpriteRenderer sr;
     private float timer;
@@ -66,5 +67,24 @@ public class EnableHat : MonoBehaviour
     public void EnableHatSprite()
     {
         sr.enabled = true;
+        //light.enabled = true;
+    }
+
+    public void IncreaseHatSprite()
+    {
+        if(!sr.enabled)
+        {
+            EnableHatSprite();
+        }
+        else
+        {
+            transform.localScale += Vector3.one * scaleIncrease;
+        }
+    }
+
+    public void DisableSprite()
+    {
+        sr.enabled = false;
+        //light.enabled = false;
     }
 }

@@ -88,6 +88,9 @@ public class PlayerListener : MonoBehaviour, UpdateableEntity
             case CardType.PlayerLoseMoneyOnHit:
                 health.loseMoneyOnHit = !health.loseMoneyOnHit;
                 break;
+            case CardType.PartyHat:
+                GetComponentInChildren<EnableHat>().IncreaseHatSprite();
+                break;
         }
     }
 
