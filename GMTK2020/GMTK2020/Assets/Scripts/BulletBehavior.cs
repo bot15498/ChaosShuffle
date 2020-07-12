@@ -14,14 +14,18 @@ public class BulletBehavior : MonoBehaviour
     public bool istracking = false;
     public bool explosive = false;
     public string originTag = "";
+    public bool canLifesteal = false;
+    public float lifestealPercent = 0.5f;
 
     private int numberOfBounces;
+    private PlayerHealth playerHealth;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * BulletSpeed;
+        playerHealth = FindObjectOfType<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -54,6 +58,11 @@ public class BulletBehavior : MonoBehaviour
                 Instantiate(money, transform.position + randomPoint, transform.rotation * Quaternion.Euler(0, 0, Random.Range(0, 360)));
             }
             Destroy(gameObject);
+        }
+
+        if(canLifesteal && collision.gameObject.tag == "Enemy" && originTag == "Player")
+        {
+            playerHealth.addHealth(lifestealPercent * damage);
         }
 
         if(collision.gameObject.tag == "Player" && originTag != "Player")

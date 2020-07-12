@@ -60,6 +60,9 @@ public class EnemyListener : MonoBehaviour, UpdateableEntity
             case CardType.PlayerDamageGivesGold:
                 health.dropMoneyOnDamage = !health.dropMoneyOnDamage;
                 break;
+            case CardType.PartyHat:
+                GetComponentInChildren<EnableHat>().IncreaseHatSprite();
+                break;
         }
     }
 
@@ -77,6 +80,11 @@ public class EnemyListener : MonoBehaviour, UpdateableEntity
     void Update()
     {
         
+    }
+
+    public void RemoveListener()
+    {
+        cardManager.RemoveObserver(this);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
