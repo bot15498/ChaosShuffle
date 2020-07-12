@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class MoneyManager : MonoBehaviour
 {
-
+    public Text moneyText;
+    public float dollaAmount;
     public float currentMoney;
     // Start is called before the first frame update
     void Start()
@@ -15,13 +16,13 @@ public class MoneyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        moneyText.text = currentMoney.ToString();
     }
 
 
-    public void addMoney(float moneyToAdd)
+    public void addMoney()
     {
-        currentMoney += moneyToAdd;
+        currentMoney += dollaAmount;
     }
 
 

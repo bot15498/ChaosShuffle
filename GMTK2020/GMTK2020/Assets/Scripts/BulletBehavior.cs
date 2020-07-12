@@ -8,6 +8,7 @@ public class BulletBehavior : MonoBehaviour
     public float damage;
     public float BulletSpeed;
     public int bulletBouncesAllowed = 0;
+    public bool istracking = false;
 
     private int numberOfBounces;
     Rigidbody2D rb;
@@ -22,7 +23,10 @@ public class BulletBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(istracking == true)
+        {
+            rb.velocity = transform.right * BulletSpeed;
+        }
     }
 
     public void updateDamage(float damagevalue)
@@ -44,7 +48,7 @@ public class BulletBehavior : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (richochet == false)
+        if (richochet == false && collision.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
         }
