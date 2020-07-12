@@ -51,6 +51,7 @@ public class ShopkeeperMenu : MonoBehaviour
 		medCardButton.gameObject.SetActive(true);
 		hardCardButton.gameObject.SetActive(true);
         bgFilter.SetActive(true);
+        exitText.gameObject.SetActive(true);
 		if (muns.currentMoney < easyCost) { easyCardButton.GetComponent<Button>().interactable = false; } else { easyCardButton.GetComponent<Button>().interactable = true; }
 		if (muns.currentMoney < medCost) { medCardButton.GetComponent<Button>().interactable = false; } else { medCardButton.GetComponent<Button>().interactable = true; }
 		if (muns.currentMoney < hardCost) { hardCardButton.GetComponent<Button>().interactable = false; } else { hardCardButton.GetComponent<Button>().interactable = true; }
@@ -77,6 +78,7 @@ public class ShopkeeperMenu : MonoBehaviour
 		medCardButton.gameObject.SetActive(false);
 		hardCardButton.gameObject.SetActive(false);
         bgFilter.SetActive(false);
+        exitText.gameObject.SetActive(false);
     }
 
     private int GetCost(CardDiff diff)
@@ -96,6 +98,7 @@ public class ShopkeeperMenu : MonoBehaviour
 	public void BuyEasyCard()
 	{
 		easyCardButton.GetComponent<Button>().interactable = false;
+        easyCardButton.ShowCard();
 		muns.minusMoney(easyCost);
 		cardManager.PlayCard(easyCard);
 	}
@@ -103,14 +106,16 @@ public class ShopkeeperMenu : MonoBehaviour
 	public void BuyMedCard()
 	{
 		medCardButton.GetComponent<Button>().interactable = false;
-		muns.minusMoney(medCost);
+        medCardButton.ShowCard();
+        muns.minusMoney(medCost);
 		cardManager.PlayCard(medCard);
 	}
 
 	public void BuyHardCard()
 	{
 		hardCardButton.GetComponent<Button>().interactable = false;
-		muns.minusMoney(hardCost);
+        hardCardButton.ShowCard();
+        muns.minusMoney(hardCost);
 		cardManager.PlayCard(hardCard);
 	}
 }

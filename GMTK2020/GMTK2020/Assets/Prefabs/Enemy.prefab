@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 380433735}
   m_Layer: 9
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,6 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac6c36eae0b6f740a75f08fadf42044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropMoneyDamageThresh: 0.2
+  dropMoneyOnDamage: 0
   maxHealth: 54
   currentHealth: 0
   money: {fileID: 4408719097233621866, guid: f187a9d0995e5374f89dc581121786af, type: 3}
@@ -449,7 +451,7 @@ GameObject:
   - component: {fileID: 5822689837698297634}
   m_Layer: 0
   m_Name: arm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -481,6 +483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6ca07be2be68e409b76990c66f3d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSpinning: 0
+  spinSpeed: 0.8
   trackingSpeed: 2
 --- !u!1 &5822689837870842208
 GameObject:
@@ -493,7 +497,7 @@ GameObject:
   - component: {fileID: 5822689837870842215}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -526,7 +530,7 @@ GameObject:
   - component: {fileID: 1890017006608802887}
   m_Layer: 0
   m_Name: Enemy Gun
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -620,6 +624,9 @@ MonoBehaviour:
   recoilForce: 0
   movement: {fileID: 3353310909333677515}
   allowedBulletBounces: 0
+  touhouMode: 0
+  touhouModeGuns: 8
+  touhouDistanceGunAwayFromCenter: 0.706
 --- !u!114 &1890017006608802887
 MonoBehaviour:
   m_ObjectHideFlags: 0

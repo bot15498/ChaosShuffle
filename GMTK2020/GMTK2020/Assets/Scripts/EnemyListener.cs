@@ -79,6 +79,11 @@ public class EnemyListener : MonoBehaviour, UpdateableEntity
         
     }
 
+    public void RemoveListener()
+    {
+        cardManager.RemoveObserver(this);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (wallLava && collision.gameObject.tag == "Wall")

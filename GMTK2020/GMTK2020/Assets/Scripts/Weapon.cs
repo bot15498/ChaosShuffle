@@ -22,6 +22,7 @@ public class Weapon : MonoBehaviour
     public bool touhouMode = false;
     public int touhouModeGuns = 8;
     public float touhouDistanceGunAwayFromCenter = 0.706f;
+    public bool canLifesteal = false;
 
     private float timer;
     private List<GameObject> extraGuns = new List<GameObject>();
@@ -48,7 +49,8 @@ public class Weapon : MonoBehaviour
                 Bbehave.updateDamage(damage);
                 Bbehave.explosive = explosive;
                 Bbehave.dropMoney = bulletsDropMoney;
-                Bbehave.originTag = gameObject.tag;
+                Bbehave.originTag = "Player";
+                Bbehave.canLifesteal = canLifesteal;
             }
             timer = 0;
             if (onlyShoot)

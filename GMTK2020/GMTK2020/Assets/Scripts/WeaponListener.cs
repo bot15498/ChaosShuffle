@@ -97,6 +97,12 @@ public class WeaponListener : MonoBehaviour, UpdateableEntity
                     enemyGun.damage = enemyGun.damage == 0 ? originalDamage : 0;
                 }
                 break;
+            case CardType.PlayerLifesteal:
+                if(wepon != null)
+                {
+                    wepon.canLifesteal = !wepon.canLifesteal;
+                }
+                break;
         }
     }
 }

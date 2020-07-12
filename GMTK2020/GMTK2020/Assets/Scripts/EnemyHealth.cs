@@ -35,7 +35,6 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damageToTake;
         if(dropMoneyOnDamage)
         {
-            Debug.Log((currentHealth / maxHealth));
             if(lastCheckmark - (currentHealth / maxHealth) >= dropMoneyDamageThresh)
             {
                 Vector3 randomPoint = Random.insideUnitCircle * 1.5f;
@@ -58,6 +57,7 @@ public class EnemyHealth : MonoBehaviour
 
     void DIE()
     {
+        GetComponent<EnemyListener>().RemoveListener();
         if(explodeOnDeath)
         {
             GameObject boom = Instantiate(explosion);

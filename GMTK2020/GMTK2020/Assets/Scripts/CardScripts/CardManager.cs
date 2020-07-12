@@ -70,7 +70,11 @@ public class CardManager : MonoBehaviour
 		{
 			currEnvCards.Add(card.MakeCopy());
 		}
-	}
+        foreach (Card card in allPlayerCards)
+        {
+            currEnvCards.Add(card.MakeCopy());
+        }
+    }
 
 	void Update()
 	{
@@ -87,7 +91,7 @@ public class CardManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F))
         {
             Card testCard = new Card(CardType.PlayerDamageGivesGold, "test", "test");
-            Card testCard2 = new Card(CardType.PlayerLoseMoneyOnHit, "test", "test");
+            Card testCard2 = new Card(CardType.PlayerLifesteal, "test", "test");
             BroadcastUpdate(testCard);
             BroadcastUpdate(testCard2);
         }
@@ -133,4 +137,9 @@ public class CardManager : MonoBehaviour
 	{
 		observers.Add(entity);
 	}
+
+    public void RemoveObserver(UpdateableEntity entity)
+    {
+        observers.Remove(entity);
+    }
 }
