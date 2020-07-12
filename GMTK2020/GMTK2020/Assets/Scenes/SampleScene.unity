@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -217,93 +217,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: timerText
-      value: 
-      objectReference: {fileID: 1516921694}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: cardUIHolder
-      value: 
-      objectReference: {fileID: 1516921693}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[0].cardType
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[1].cardType
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[0].count
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[1].count
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[0].desc
-      value: Increase max health by 1.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[1].desc
-      value: Decrease max health by 1.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[0].name
-      value: More Health
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[1].name
-      value: Less Health
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[0].image
-      value: 
-      objectReference: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db,
-        type: 3}
-    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
-        type: 3}
-      propertyPath: allEnvCards.Array.data[1].image
-      value: 
-      objectReference: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a31316ade20ac904f9cb08cb8c094dcb, type: 3}
---- !u!1 &145701742 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7923457293967571891, guid: a31316ade20ac904f9cb08cb8c094dcb,
-    type: 3}
-  m_PrefabInstance: {fileID: 145701741}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &145701743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145701742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ad86f653556ee4c96562fb367af46e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &174301811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,11 +1462,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 683007680405711546, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 683007680405711542, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1659,24 +1569,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49dee01cffc6ade448d3023c5c0fa3e3, type: 3}
---- !u!1 &1516921693 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 683007680801515944, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1516921692}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1516921694 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 683007679916469175, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1516921692}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1649080675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,6 +1582,7 @@ GameObject:
   - component: {fileID: 1649080678}
   - component: {fileID: 1649080677}
   - component: {fileID: 1649080676}
+  - component: {fileID: 1649080683}
   - component: {fileID: 1649080682}
   - component: {fileID: 1649080681}
   m_Layer: 0
@@ -1860,6 +1753,18 @@ MonoBehaviour:
   MaxHealth: 5
   currentHealth: 0
   CanTakeDamage: 0
+--- !u!114 &1649080683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649080675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0954a3d66af7ce4cb4c6880f9a81a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1747769757
 GameObject:
   m_ObjectHideFlags: 0
