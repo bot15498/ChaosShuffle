@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canShoot: 1
-  damage: 0
+  damage: 10
   fireRate: 0.4
   onlyShoot: 0
   explosive: 0
@@ -1143,6 +1143,8 @@ MonoBehaviour:
   MaxHealth: 5
   currentHealth: 0
   CanTakeDamage: 0
+  HealthText: {fileID: 0}
+  HealthBar: {fileID: 0}
 --- !u!114 &1311613366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1343,6 +1345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ded775690c36c4dbd63da62132b75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyText: {fileID: 0}
+  dollaAmount: 0
   currentMoney: 0
 --- !u!4 &1473308275
 Transform:
