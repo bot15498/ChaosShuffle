@@ -452,6 +452,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &406513399 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1034735963, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 683007680554701486}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &521310232 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 941365605, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 683007680554701486}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &539981832
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +932,7 @@ MonoBehaviour:
     type: 3}
   gunBarrel: {fileID: 927288438}
   recoilForce: 0
-  movement: {fileID: 0}
+  movement: {fileID: 1054120446}
   allowedBulletBounces: 0
   recoil: 500
   recoilStopTime: 0.1
@@ -1150,10 +1174,9 @@ MonoBehaviour:
   MaxHealth: 10
   currentHealth: 0
   CanTakeDamage: 0
-  HealthText: {fileID: 0}
-  HealthBar: {fileID: 0}
+  HealthText: {fileID: 406513399}
+  HealthBar: {fileID: 521310232}
   healAmount: 3
-  loseCanvas: {fileID: 0}
 --- !u!114 &1054120443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1794,7 +1817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e993560c5e960634d8d57ee3ddc38680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1889261209}
+  target: {fileID: 1054120448}
   smoothTime: 0.5
   offset: {x: 0, y: 0, z: -5}
 --- !u!81 &1889261207
@@ -1951,6 +1974,18 @@ Transform:
   m_Father: {fileID: 572759679}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2106149962 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6598797870581062296, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 683007680554701486}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &683007680554701486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2234,5 +2269,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8002266634687736277, guid: 5027732129fe7334da60a86464b831a1,
+        type: 3}
+      propertyPath: openShopPrompt
+      value: 
+      objectReference: {fileID: 2106149962}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5027732129fe7334da60a86464b831a1, type: 3}
