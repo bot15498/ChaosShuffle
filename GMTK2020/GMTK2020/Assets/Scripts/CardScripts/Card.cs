@@ -41,4 +41,9 @@ public class Card
 	{
 		return new Card(cardType, name, desc, image, diff);
 	}
+
+    public override int GetHashCode()
+    {
+        return cardType.GetHashCode() ^ name.GetHashCode();
+    }
 }

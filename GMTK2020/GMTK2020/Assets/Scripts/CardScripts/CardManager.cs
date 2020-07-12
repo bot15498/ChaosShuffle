@@ -52,7 +52,6 @@ public class CardManager : MonoBehaviour
 	public GameObject cardUIHolder;
 	public List<Card> allEnvCards = new List<Card>();
 	public List<Card> allPlayerCards = new List<Card>();
-	public List<Card> activePlayerCards = new List<Card>();
 	public List<Card> activeEnvCards = new List<Card>();
 	public List<Card> currEnvCards = new List<Card>();
 	public List<Card> currPlayerCards = new List<Card>();
@@ -87,7 +86,7 @@ public class CardManager : MonoBehaviour
         // DEBUGGING
         if(Input.GetKeyDown(KeyCode.F))
         {
-            Card testCard = new Card(CardType.EnvironmentLavaWalls, "test", "test");
+            Card testCard = new Card(CardType.PlayerExplosiveRounds, "test", "test");
             Card testCard2 = new Card(CardType.EveryoneNoMovement, "test", "test");
             BroadcastUpdate(testCard);
             BroadcastUpdate(testCard2);
