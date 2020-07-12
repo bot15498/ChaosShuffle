@@ -6,6 +6,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth;
     private float currentHealth;
+    private GameObject explosion;
+    private bool explodeOnDeath = false;
     EnemyManager Em;
     // Start is called before the first frame update
     void Awake()
@@ -30,8 +32,20 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    public void ToggleExplodeOnDeath(GameObject explosion)
+    {
+        explodeOnDeath = !explodeOnDeath;
+        this.explosion = explosion;
+    }
+
     void DIE()
     {
+        if(explodeOnDeath)
+        {
+            GameObject boom = Instantiate(explosion);
+            boom.transform.position = transform.position;
+            boom.GetComponent<Explosion>().Explode();
+        }
         Em.minusEnemy();
         Destroy(gameObject);
     }

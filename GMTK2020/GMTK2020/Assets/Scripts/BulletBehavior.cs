@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
+    public GameObject explosion;
     public bool richochet;
     public float damage;
     public float BulletSpeed;
     public int bulletBouncesAllowed = 0;
+    public bool explosive = false;
 
     private int numberOfBounces;
     Rigidbody2D rb;
@@ -40,6 +42,13 @@ public class BulletBehavior : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyHealth>().takeDamage(damage);
             Destroy(gameObject);
+        }
+
+        if(explosive)
+        {
+            GameObject boom = Instantiate(explosion);
+            boom.transform.position = transform.position;
+            boom.GetComponent<Explosion>().Explode();
         }
 
         numberOfBounces++;

@@ -7,11 +7,17 @@ public class Weapon : MonoBehaviour
 	public bool canShoot = true;
     public float damage;
     public float fireRate;
+    public bool onlyShoot = false;
+    public bool explosive = false;
     public GameObject bulletToSpawn;
     public Transform gunBarrel;
     public float recoilForce;
-    public Rigidbody2D rb;
+    public PlayerMovement movement;
     public int allowedBulletBounces = 0;
+    public float recoil = 500f;
+    public float recoilStopTime = 0.1f;
+    public int numberOfBullets = 1;
+    public float angleDiffBetweenBullets = 20f;
 
     private float timer;
     // Start is called before the first frame update
@@ -24,14 +30,25 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (canShoot && Input.GetKeyDown(KeyCode.Mouse0) && timer >= fireRate)
+        if (canShoot && (Input.GetKeyDown(KeyCode.Mouse0) || onlyShoot) && timer >= fireRate)
         {
-            GameObject spawnedBullet;   
-            spawnedBullet = Instantiate(bulletToSpawn, gunBarrel.position, gunBarrel.rotation);
-            spawnedBullet.GetComponent<BulletBehavior>().bulletBouncesAllowed = allowedBulletBounces;
-            BulletBehavior Bbehave = spawnedBullet.GetComponent<BulletBehavior>();
-            Bbehave.updateDamage(damage);
+            float startAngle = (180f - (numberOfBullets - 1) * angleDiffBetweenBullets) / 2f - 90f;
+            for (float i=0;i<numberOfBullets;i++)
+            {
+                Quaternion angleToApply = Quaternion.AngleAxis(startAngle + i * angleDiffBetweenBullets, gunBarrel.forward);
+                Debug.Log(startAngle + i * angleDiffBetweenBullets);
+                GameObject spawnedBullet;
+                spawnedBullet = Instantiate(bulletToSpawn, gunBarrel.position, gunBarrel.rotation * angleToApply);
+                spawnedBullet.GetComponent<BulletBehavior>().bulletBouncesAllowed = allowedBulletBounces;
+                BulletBehavior Bbehave = spawnedBullet.GetComponent<BulletBehavior>();
+                Bbehave.updateDamage(damage);
+                Bbehave.explosive = explosive;
+            }
             timer = 0;
+            if(onlyShoot)
+            {
+                movement.AddKnockback(transform.position - gunBarrel.position, recoil, recoilStopTime);
+            }
         }
     }
 
@@ -43,12 +60,6 @@ public class Weapon : MonoBehaviour
     public void ChangeDamage(float damageChange)
     {
         damage += damageChange;
-    }
-
-    void Recoil()
-    {
-        Vector3 force = -gunBarrel.transform.right * recoilForce;
-        rb.AddForce(force);
     }
 
     public void changeBulletType(GameObject bullettoSwitch)

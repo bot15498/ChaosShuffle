@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerListener : MonoBehaviour, UpdateableEntity
 {
+    public GameObject shopkeeper;
+    public float shopkeeperDropRange = 1f;
+    public GameObject explosionPrefab;
+    public int numberOfExplosionsInCarpetBomber = 10;
+    public float carpetBombRange = 25f;
+    public float timeBetweenCarpetBombs = 0.3f;
     private PlayerHealth health;
     private Weapon wepon;
     private PlayerMovement movement;
@@ -72,6 +78,13 @@ public class PlayerListener : MonoBehaviour, UpdateableEntity
             case CardType.EveryoneSnakeMovement:
                 movement.snakeMovement = !movement.snakeMovement;
                 break;
+            case CardType.EveryoneCarpetBomber:
+                StartCoroutine(CarpetBomber());
+                break;
+            case CardType.EnvironmentShopkeeper:
+                Vector3 randomPoint = Random.insideUnitCircle * Mathf.Sqrt(shopkeeperDropRange);
+                GameObject shop = Instantiate(shopkeeper, transform.position + randomPoint, Quaternion.identity);
+                break;
         }
     }
 
@@ -80,6 +93,18 @@ public class PlayerListener : MonoBehaviour, UpdateableEntity
         if(wallLava && collision.gameObject.tag == "Wall")
         {
             health.MinusHealth(1);
+        }
+    }
+
+    private IEnumerator CarpetBomber()
+    {
+        Vector2 center = transform.position;
+        for (int i=0;i<numberOfExplosionsInCarpetBomber;i++)
+        {
+            Vector2 randomPoint = Random.insideUnitCircle * Mathf.Sqrt(carpetBombRange);
+            GameObject megumin = Instantiate(explosionPrefab, center + randomPoint, Quaternion.identity);
+            megumin.GetComponent<Explosion>().Explode();
+            yield return new WaitForSeconds(timeBetweenCarpetBombs);
         }
     }
 }

@@ -18,18 +18,24 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sr;
     private float lastValidH = 1f;
     private float lastValidV = 1f;
+    private bool isKnockback = false;
+    private Vector2 currPos;
     // Start is called before the first frame update
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         facingRight = true;
+        currPos = transform.GetChild(0).GetChild(0).GetChild(0).localPosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (!isKnockback)
+        {
+            Move();
+        }
         WeaponFlipping();
     }
 
@@ -38,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float h = 0f;
         float v = 0f;
-        if(!useArrowKeys)
+        if (!useArrowKeys)
         {
             h = Input.GetAxisRaw("Horizontal");
             v = Input.GetAxisRaw("Vertical");
@@ -73,8 +79,8 @@ public class PlayerMovement : MonoBehaviour
                 playerRigidbody.velocity = new Vector2(h * speed, v * speed);
             }
         }
-        lastValidH = h;
-        lastValidV = v;
+        lastValidH = playerRigidbody.velocity.x / speed;
+        lastValidV = playerRigidbody.velocity.y / speed;
     }
 
     public void StopMoving()
@@ -98,9 +104,11 @@ public class PlayerMovement : MonoBehaviour
             newScale.x = 1;
             transform.localScale = newScale;
             CursorDirection.transform.localScale = newScale;
-           // sr.flipX = false;
+            // sr.flipX = false;
             WeaponSprite.flipY = false;
             facingRight = true;
+
+            transform.GetChild(0).GetChild(0).GetChild(0).localPosition = new Vector2(currPos.x, currPos.y);
 
         }
         else if (delta.x < 0 && facingRight)
@@ -112,9 +120,32 @@ public class PlayerMovement : MonoBehaviour
             //sr.flipX = true;
             WeaponSprite.flipY = true;
 
-            
+            //fix shooting at pistol hole
+            transform.GetChild(0).GetChild(0).GetChild(0).localPosition = new Vector2(currPos.x, -currPos.y);
+
             facingRight = false;
         }
+    }
+
+    public void AddKnockback(Vector2 direction, float force, float duration)
+    {
+        isKnockback = true;
+        StopMoving();
+        playerRigidbody.AddForce(direction.normalized * force);
+        StartCoroutine(StopMoving(duration));
+    }
+
+    private IEnumerator StopMoving(float duration)
+    {
+        yield return new WaitForSecondsRealtime(duration);
+        isKnockback = false;
+        lastValidH = playerRigidbody.velocity.x / speed;
+        lastValidV = playerRigidbody.velocity.y / speed;
+        if (!canControlMove)
+        {
+            StopMoving();
+        }
+        yield return null;
     }
 
 
