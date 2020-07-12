@@ -7,6 +7,9 @@ public class BulletBehavior : MonoBehaviour
     public bool richochet;
     public float damage;
     public float BulletSpeed;
+    public int bulletBouncesAllowed = 0;
+
+    private int numberOfBounces;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()

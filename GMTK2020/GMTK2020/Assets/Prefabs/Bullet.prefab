@@ -117,9 +117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5939a88d0b12f4cb8266bc4f5222e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  richochet: 0
+  richochet: 1
   damage: 1
   BulletSpeed: 20
+  bulletBouncesAllowed: 0
 --- !u!58 &6785991187503612336
 CircleCollider2D:
   m_ObjectHideFlags: 0

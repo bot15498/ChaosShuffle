@@ -49,16 +49,16 @@ public class PlayerMovement : MonoBehaviour
             v = Input.GetAxisRaw("Vertical2");
         }
 
-        if (snakeMovement && Mathf.Abs(h) < 0.01f && Mathf.Abs(v) < 0.01f)
-        {
-            h = lastValidH;
-            v = lastValidV;
-        }
-
         if (mirrored)
         {
             h = h * -1;
             v = v * -1;
+        }
+
+        if (snakeMovement && Mathf.Abs(h) < 0.01f && Mathf.Abs(v) < 0.01f)
+        {
+            h = lastValidH;
+            v = lastValidV;
         }
         if (canControlMove)
         {

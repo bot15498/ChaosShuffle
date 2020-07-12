@@ -87,7 +87,7 @@ public class CardManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F))
         {
             Card testCard = new Card(CardType.PlayerExplosiveRounds, "test", "test");
-            Card testCard2 = new Card(CardType.EveryoneNoMovement, "test", "test");
+            Card testCard2 = new Card(CardType.EveryoneBouncingBullets, "test", "test");
             BroadcastUpdate(testCard);
             BroadcastUpdate(testCard2);
         }
