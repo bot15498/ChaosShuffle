@@ -101,7 +101,7 @@ MonoBehaviour:
     diff: 0
   - cardType: 25
     name: Icy Wind
-    image: {fileID: 21300000, guid: 2e033ce5e12e7a149a0311c43fd08730, type: 3}
+    image: {fileID: 21300000, guid: 65d61b4f56977a143bd10161a41af0d4, type: 3}
     desc: Floor gets slipperly for everyone.
     count: 1
     diff: 0
@@ -198,13 +198,13 @@ MonoBehaviour:
     diff: 2
   - cardType: 17
     name: Explosive Rounds
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
+    image: {fileID: 21300000, guid: f0f4b36dc2ac67247afa62f7315f2ff9, type: 3}
     desc: Player bullets explode on impact.
     count: 1
     diff: 2
   - cardType: 22
     name: Chill, dude.
-    image: {fileID: 21300000, guid: 488def8ca87d98c449a873c6db85ce17, type: 3}
+    image: {fileID: 21300000, guid: 3b5b09be57de0b848b0c8b5c206c4dae, type: 3}
     desc: Everyone moves slower
     count: 1
     diff: 0

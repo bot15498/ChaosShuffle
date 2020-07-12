@@ -91,14 +91,8 @@ public class CardManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F))
         {
             Card testCard = new Card(CardType.PartyHat, "test", "test");
-            Card testCard2 = new Card(CardType.EnvironmentMakeBrighter, "test", "test");
+            Card testCard2 = new Card(CardType.Orphans, "test", "test");
             BroadcastUpdate(testCard);
-            BroadcastUpdate(testCard2);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Card testCard2 = new Card(CardType.EnvironmentMakeDarker, "test", "test");
             BroadcastUpdate(testCard2);
         }
     }

@@ -30,7 +30,6 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         timer = 0;
-        ActivateTouhouMode();
     }
 
     // Update is called once per frame
