@@ -57,6 +57,9 @@ public class EnemyListener : MonoBehaviour, UpdateableEntity
                 }
                 transform.GetComponent<SpriteRenderer>().enabled = !isInvisible;
                 break;
+            case CardType.PlayerDamageGivesGold:
+                health.dropMoneyOnDamage = !health.dropMoneyOnDamage;
+                break;
         }
     }
 

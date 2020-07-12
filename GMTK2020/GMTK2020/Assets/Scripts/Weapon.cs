@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public bool bulletsDropMoney = false;
     public bool canShoot = true;
     public float damage;
     public float fireRate;
@@ -46,6 +47,8 @@ public class Weapon : MonoBehaviour
                 BulletBehavior Bbehave = spawnedBullet.GetComponent<BulletBehavior>();
                 Bbehave.updateDamage(damage);
                 Bbehave.explosive = explosive;
+                Bbehave.dropMoney = bulletsDropMoney;
+                Bbehave.originTag = gameObject.tag;
             }
             timer = 0;
             if (onlyShoot)

@@ -86,8 +86,8 @@ public class CardManager : MonoBehaviour
         // DEBUGGING
         if(Input.GetKeyDown(KeyCode.F))
         {
-            Card testCard = new Card(CardType.EveryoneAllDirectionShoot, "test", "test");
-            Card testCard2 = new Card(CardType.EveryoneSpinning, "test", "test");
+            Card testCard = new Card(CardType.PlayerDamageGivesGold, "test", "test");
+            Card testCard2 = new Card(CardType.PlayerLoseMoneyOnHit, "test", "test");
             BroadcastUpdate(testCard);
             BroadcastUpdate(testCard2);
         }

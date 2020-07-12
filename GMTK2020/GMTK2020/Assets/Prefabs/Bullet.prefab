@@ -117,7 +117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5939a88d0b12f4cb8266bc4f5222e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 0}
+  money: {fileID: 4408719097233621866, guid: f187a9d0995e5374f89dc581121786af, type: 3}
+  explosion: {fileID: 8032033374618254563, guid: c28076f2370cbbe4a9d32a1896e37966,
+    type: 3}
+  dropMoney: 0
   richochet: 1
   damage: 1
   BulletSpeed: 20

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public float dropMoneyDamageThresh = 0.2f;
+    public bool dropMoneyOnDamage = false;
     public float maxHealth;
     [SerializeField]
     private float currentHealth;
@@ -13,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     private GameObject explosion;
     private bool explodeOnDeath = false;
     EnemyManager Em;
+    private float lastCheckmark = 1.0f;
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,7 +33,17 @@ public class EnemyHealth : MonoBehaviour
     public void takeDamage(float damageToTake)
     {
         currentHealth -= damageToTake;
-        if(currentHealth <= 0)
+        if(dropMoneyOnDamage)
+        {
+            Debug.Log((currentHealth / maxHealth));
+            if(lastCheckmark - (currentHealth / maxHealth) >= dropMoneyDamageThresh)
+            {
+                Vector3 randomPoint = Random.insideUnitCircle * 1.5f;
+                Instantiate(money, transform.position + randomPoint, transform.rotation * Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                lastCheckmark = currentHealth / maxHealth;
+            }
+        }
+        if (currentHealth <= 0)
         {
             
             DIE();

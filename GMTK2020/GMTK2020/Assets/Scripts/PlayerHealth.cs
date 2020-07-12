@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public bool loseMoneyOnHit = false;
+    public float ratioToLose = 1f;
     public float MaxHealth;
     [SerializeField]
     private float currentHealth;
@@ -12,11 +14,14 @@ public class PlayerHealth : MonoBehaviour
     public Text HealthText;
     public Image HealthBar;
 
+    private MoneyManager mm;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = MaxHealth;
         CanTakeDamage = true;
+        mm = FindObjectOfType<MoneyManager>();
     }
 
     // Update is called once per frame
@@ -45,6 +50,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (CanTakeDamage == true) {
             currentHealth -= healhToMinus;
+            if(loseMoneyOnHit)
+            {
+                mm.minusMoney(healhToMinus * ratioToLose);
+            }
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
@@ -56,6 +65,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-
+        Debug.Log("ur fucking ded kiddo");
     }
 }

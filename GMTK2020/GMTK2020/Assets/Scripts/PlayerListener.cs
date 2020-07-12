@@ -50,7 +50,7 @@ public class PlayerListener : MonoBehaviour, UpdateableEntity
                 movement.mirrored = !movement.mirrored;
                 break;
             case CardType.PlayerDamageIncrease:
-                wepon.damage += 1;
+                wepon.damage += 10;
                 break;
             case CardType.PlayerFireRateIncrease:
                 wepon.fireRate -= 0.1f;
@@ -84,6 +84,9 @@ public class PlayerListener : MonoBehaviour, UpdateableEntity
             case CardType.EnvironmentShopkeeper:
                 Vector3 randomPoint = Random.insideUnitCircle * Mathf.Sqrt(shopkeeperDropRange);
                 GameObject shop = Instantiate(shopkeeper, transform.position + randomPoint, Quaternion.identity);
+                break;
+            case CardType.PlayerLoseMoneyOnHit:
+                health.loseMoneyOnHit = !health.loseMoneyOnHit;
                 break;
         }
     }
