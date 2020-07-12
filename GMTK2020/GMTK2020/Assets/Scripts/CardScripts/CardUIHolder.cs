@@ -7,7 +7,7 @@ public class CardUIHolder : MonoBehaviour
     public GameObject cardPrefab;
     public IconHolder iconHolder;
 
-    private float holdDuration = 3f;
+    public float holdDuration = 3f;
     private float moveSpeed = 900f;
     private float posOffset = 500f;
 

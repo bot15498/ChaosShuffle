@@ -16,7 +16,7 @@ public class MoneyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moneyText.text = "$:" + currentMoney.ToString();
+        moneyText.text = "$" + currentMoney.ToString();
     }
 
 

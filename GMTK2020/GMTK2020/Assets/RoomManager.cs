@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class RoomManager : MonoBehaviour
 {
     public float roomsCleared;
@@ -10,6 +10,7 @@ public class RoomManager : MonoBehaviour
     public GameObject entranceDoor;
     public GameObject exitdoor;
     public Vector3 offset;
+    public Text RoomScore;
     public int shopinterval;
     [SerializeField]
     float shoptimer;
@@ -23,7 +24,7 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        RoomScore.text = "Room " + roomsCleared.ToString();
     }
 
     public void createRoom(GameObject entrancedoor)
