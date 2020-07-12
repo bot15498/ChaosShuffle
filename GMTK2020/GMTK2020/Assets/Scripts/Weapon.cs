@@ -84,7 +84,7 @@ public class Weapon : MonoBehaviour
         {
             Quaternion angleToApply = Quaternion.AngleAxis(i, gunBarrel.forward);
             Vector3 vectorAngleToOffset = new Vector2(Mathf.Cos(i), Mathf.Sin(i)) * Mathf.Sqrt(touhouDistanceGunAwayFromCenter);
-            GameObject extra = Instantiate(gameObject, transform.parent.position, angleToApply, transform.parent);
+            GameObject extra = Instantiate(gameObject, transform.parent.position + vectorAngleToOffset, angleToApply, transform.parent);
             extraGuns.Add(extra);
         }
     }

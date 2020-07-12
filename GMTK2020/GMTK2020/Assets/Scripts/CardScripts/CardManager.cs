@@ -57,8 +57,7 @@ public class CardManager : MonoBehaviour
 	public List<Card> currPlayerCards = new List<Card>();
     public Image TimerImage;
 
-	[SerializeField]
-	private float drawInterval = 10f;
+	public float drawInterval = 10f;
 	private float timeRemaining;
 
 	private List<UpdateableEntity> observers = new List<UpdateableEntity>();
@@ -92,11 +91,11 @@ public class CardManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F))
         {
             Card testCard = new Card(CardType.PartyHat, "test", "test");
-            Card testCard2 = new Card(CardType.PlayerDamageGivesGold, "test", "test");
+            Card testCard2 = new Card(CardType.Orphans, "test", "test");
             BroadcastUpdate(testCard);
             BroadcastUpdate(testCard2);
         }
-	}
+    }
 
 	public void PlayCard(Card card)
 	{

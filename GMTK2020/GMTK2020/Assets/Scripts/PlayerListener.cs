@@ -91,6 +91,13 @@ public class PlayerListener : MonoBehaviour, UpdateableEntity
             case CardType.PartyHat:
                 GetComponentInChildren<EnableHat>().IncreaseHatSprite();
                 break;
+            case CardType.EnvironmentShorterCardDraw:
+                cardManager.drawInterval -= 1.5f;
+                if(cardManager.drawInterval <= 4f)
+                {
+                    cardManager.drawInterval = 4f;
+                }
+                break;
         }
     }
 

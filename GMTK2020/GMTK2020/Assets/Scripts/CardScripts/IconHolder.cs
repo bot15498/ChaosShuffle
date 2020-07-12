@@ -31,7 +31,9 @@ public class IconHolder : MonoBehaviour
         // check to see if card exists if it doesnt, add as new icon
         if(!visibleCardIcons.ContainsKey(card))
         {
-            if(card.cardType != CardType.PlayerTakeDamage || card.cardType != CardType.EveryoneCarpetBomber)
+            if(card.cardType != CardType.PlayerTakeDamage 
+                && card.cardType != CardType.EveryoneCarpetBomber
+                && card.cardType != CardType.EnvironmentShopkeeper)
             {
                 SpawnIcon(card);
             }

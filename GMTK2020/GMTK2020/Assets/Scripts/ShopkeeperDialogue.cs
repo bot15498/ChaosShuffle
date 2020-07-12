@@ -33,6 +33,7 @@ public class ShopkeeperDialogue : MonoBehaviour
 		if (shopScreen == null)
 		{
 			shopScreen = FindObjectOfType<ShopkeeperMenu>();
+            openShopPrompt = shopScreen.transform.Find("exit text").GetComponent<Text>();
 		}
 		if(wepon == null)
 		{
@@ -83,15 +84,21 @@ public class ShopkeeperDialogue : MonoBehaviour
 
 	public void OnTriggerEnter2D(Collider2D collision)
 	{
-		canOpenShop = true;
-        openShopPrompt.gameObject.SetActive(true);
-        openShopPrompt.text = "Press E to Open Shop";
+        if(collision.gameObject.tag == "Player")
+        {
+            canOpenShop = true;
+            openShopPrompt.gameObject.SetActive(true);
+            openShopPrompt.text = "Press E to Open Shop";
+        }
     }
 
 	public void OnTriggerExit2D(Collider2D collision)
 	{
-		canOpenShop = false;
-        openShopPrompt.gameObject.SetActive(false);
-        openShopPrompt.text = "Press E to Open Shop";
+        if (collision.gameObject.tag == "Player")
+        {
+            canOpenShop = false;
+            openShopPrompt.gameObject.SetActive(false);
+            openShopPrompt.text = "Press E to Open Shop";
+        }
     }
 }
