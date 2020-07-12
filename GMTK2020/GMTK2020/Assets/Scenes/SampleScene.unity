@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -941,6 +941,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &903546844 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6050608108139287316, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1516921692}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &957533012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,6 +1173,7 @@ GameObject:
   - component: {fileID: 1085540804}
   - component: {fileID: 1085540806}
   - component: {fileID: 1085540807}
+  - component: {fileID: 1085540808}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -1230,6 +1243,21 @@ MonoBehaviour:
   offset: {x: 20, y: 0, z: 0}
   shopinterval: 0
   shoptimer: 0
+--- !u!114 &1085540808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085540803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de124743bc04f4d4da8a889163fc0351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showDuration: 4
+  fadeDuration: 1
+  pauseText: {fileID: 903546844}
 --- !u!1 &1330285782
 GameObject:
   m_ObjectHideFlags: 0
