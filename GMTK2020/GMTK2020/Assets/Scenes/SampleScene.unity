@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 361954545}
   - component: {fileID: 361954547}
   - component: {fileID: 361954546}
+  - component: {fileID: 361954548}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -434,11 +435,31 @@ MonoBehaviour:
   canShoot: 1
   damage: 0
   fireRate: 0
+  onlyShoot: 0
+  explosive: 0
   bulletToSpawn: {fileID: 6371565790324439834, guid: 675bca5674271644ebf614273176fb0f,
     type: 3}
   gunBarrel: {fileID: 133360740}
   recoilForce: 0
-  rb: {fileID: 0}
+  movement: {fileID: 0}
+  allowedBulletBounces: 0
+  recoil: 500
+  recoilStopTime: 0.1
+  numberOfBullets: 1
+  angleDiffBetweenBullets: 20
+  touhouMode: 0
+--- !u!114 &361954548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361954544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb137b62ed8be9a46b340534a05f0101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &405713904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1811,6 +1832,8 @@ MonoBehaviour:
   MaxHealth: 5
   currentHealth: 0
   CanTakeDamage: 0
+  HealthText: {fileID: 0}
+  HealthBar: {fileID: 0}
 --- !u!114 &1649080683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1823,6 +1846,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0954a3d66af7ce4cb4c6880f9a81a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopkeeper: {fileID: 8002266634687736281, guid: 5027732129fe7334da60a86464b831a1,
+    type: 3}
+  shopkeeperDropRange: 1
+  explosionPrefab: {fileID: 8032033374618254563, guid: c28076f2370cbbe4a9d32a1896e37966,
+    type: 3}
+  numberOfExplosionsInCarpetBomber: 10
+  carpetBombRange: 25
+  timeBetweenCarpetBombs: 0.3
 --- !u!1 &1747769757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,10 +2331,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5939a88d0b12f4cb8266bc4f5222e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 0}
   richochet: 1
   damage: 1
   BulletSpeed: 5
   bulletBouncesAllowed: 0
+  istracking: 0
+  explosive: 0
 --- !u!4 &8710752925971524182
 Transform:
   m_ObjectHideFlags: 0

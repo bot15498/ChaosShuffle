@@ -87,7 +87,7 @@ public class CardManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F))
         {
             Card testCard = new Card(CardType.PlayerMultishot, "test", "test");
-            Card testCard2 = new Card(CardType.EnvironmentShopkeeper, "test", "test");
+            Card testCard2 = new Card(CardType.EveryoneCarpetBomber, "test", "test");
             BroadcastUpdate(testCard);
             BroadcastUpdate(testCard2);
         }

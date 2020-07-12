@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (canShoot && (Input.GetKeyDown(KeyCode.Mouse0) || onlyShoot) && timer >= fireRate)
+        if (canShoot && (Input.GetAxis("Fire1") > 0.1f || onlyShoot) && timer >= fireRate)
         {
             float startAngle = (180f - (numberOfBullets - 1) * angleDiffBetweenBullets) / 2f - 90f;
             for (float i=0;i<numberOfBullets;i++)
