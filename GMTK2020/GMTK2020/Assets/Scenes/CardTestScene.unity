@@ -1177,6 +1177,7 @@ MonoBehaviour:
   HealthText: {fileID: 406513399}
   HealthBar: {fileID: 521310232}
   healAmount: 3
+  loseCanvas: {fileID: 0}
 --- !u!114 &1054120443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2101,18 +2102,6 @@ PrefabInstance:
     - target: {fileID: 683007680405711542, guid: 49dee01cffc6ade448d3023c5c0fa3e3,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 596226206, guid: 49dee01cffc6ade448d3023c5c0fa3e3, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -2.5769043
-      objectReference: {fileID: 0}
-    - target: {fileID: 596226206, guid: 49dee01cffc6ade448d3023c5c0fa3e3, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -110.899994
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236719879, guid: 49dee01cffc6ade448d3023c5c0fa3e3, type: 3}
-      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
