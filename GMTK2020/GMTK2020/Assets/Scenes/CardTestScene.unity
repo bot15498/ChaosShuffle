@@ -2192,6 +2192,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
         type: 3}
+      propertyPath: allEnvCards.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
+        type: 3}
       propertyPath: cardUIHolder
       value: 
       objectReference: {fileID: 683007680554701487}
@@ -2200,6 +2205,32 @@ PrefabInstance:
       propertyPath: TimerImage
       value: 
       objectReference: {fileID: 305023233}
+    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
+        type: 3}
+      propertyPath: allEnvCards.Array.data[16].cardType
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
+        type: 3}
+      propertyPath: allEnvCards.Array.data[16].name
+      value: Quick Draw
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
+        type: 3}
+      propertyPath: allEnvCards.Array.data[16].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 183796a0b5134074ba9cee7b4b88faab,
+        type: 3}
+    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
+        type: 3}
+      propertyPath: allEnvCards.Array.data[16].desc
+      value: Time between draws is reduced.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923457293967571888, guid: a31316ade20ac904f9cb08cb8c094dcb,
+        type: 3}
+      propertyPath: allEnvCards.Array.data[16].count
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a31316ade20ac904f9cb08cb8c094dcb, type: 3}
 --- !u!1001 &8002266634359308732

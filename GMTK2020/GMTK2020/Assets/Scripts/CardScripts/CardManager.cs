@@ -44,6 +44,7 @@ public enum CardType
 	CameraSelfie,
 	CameraWavy,
 	CameraBlurry,
+    EnvironmentShorterCardDraw
 }
 
 public class CardManager : MonoBehaviour

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public float whiteoutDuration = 0.15f;
     public float dropMoneyDamageThresh = 0.2f;
     public bool dropMoneyOnDamage = false;
     public float maxHealth;
@@ -16,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
     private bool explodeOnDeath = false;
     EnemyManager Em;
     private float lastCheckmark = 1.0f;
+    private bool isWhite = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -33,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
     public void takeDamage(float damageToTake)
     {
         currentHealth -= damageToTake;
+        StartCoroutine(FlickerSprite());
         if(dropMoneyOnDamage)
         {
             if(lastCheckmark - (currentHealth / maxHealth) >= dropMoneyDamageThresh)
@@ -75,5 +78,19 @@ public class EnemyHealth : MonoBehaviour
 
         Em.minusEnemy();
 
+    }
+
+    private IEnumerator FlickerSprite()
+    {
+        if(isWhite)
+        {
+            yield break;
+        }
+
+        isWhite = true;
+        GetComponent<SpriteRenderer>().color = new Color32(0xFF, 0x73, 0x73, 0xFF);
+        yield return new WaitForSeconds(whiteoutDuration);
+        GetComponent<SpriteRenderer>().color = new Color32(0xFF, 0xFF, 0xFF, 0xFF);
+        isWhite = false;
     }
 }
