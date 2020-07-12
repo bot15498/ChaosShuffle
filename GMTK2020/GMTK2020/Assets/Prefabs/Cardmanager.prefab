@@ -70,12 +70,6 @@ MonoBehaviour:
     desc: Bullets will bounce one more time
     count: 1
     diff: 0
-  - cardType: 8
-    name: Frozen Bonds
-    image: {fileID: 21300000, guid: 15c8d7f09114ed84b8b0abd266bb9bc5, type: 3}
-    desc: Everyone cannot use their legs to move.
-    count: 1
-    diff: 0
   - cardType: 9
     name: Dark Theme
     image: {fileID: 21300000, guid: 04967271f3582534faac9c30d571b1a3, type: 3}
