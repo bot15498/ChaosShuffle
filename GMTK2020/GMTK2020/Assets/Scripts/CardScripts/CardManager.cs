@@ -90,7 +90,7 @@ public class CardManager : MonoBehaviour
         // DEBUGGING
         if(Input.GetKeyDown(KeyCode.F))
         {
-            Card testCard = new Card(CardType.PartyHat, "test", "test");
+            Card testCard = new Card(CardType.EnvironmentChangeMusic, "test", "test");
             Card testCard2 = new Card(CardType.Orphans, "test", "test");
             BroadcastUpdate(testCard);
             BroadcastUpdate(testCard2);
