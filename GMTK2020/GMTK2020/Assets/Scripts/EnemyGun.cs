@@ -15,8 +15,12 @@ public class EnemyGun : MonoBehaviour
     public float recoilForce;
     public EnemyMovement movement;
     public int allowedBulletBounces;
+    public bool touhouMode = false;
+    public int touhouModeGuns = 8;
+    public float touhouDistanceGunAwayFromCenter = 0.706f;
 
     private float timer;
+    private List<GameObject> extraGuns = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -55,5 +59,31 @@ public class EnemyGun : MonoBehaviour
     public void changeBulletType(GameObject bullettoSwitch)
     {
         bulletToSpawn = bullettoSwitch;
+    }
+
+    public void ActivateTouhouMode()
+    {
+        if (touhouMode) { return; }
+        touhouMode = true;
+        float angleBetweenGuns = 360f / touhouModeGuns;
+        for (float i = angleBetweenGuns; i < 360f; i += angleBetweenGuns)
+        {
+            Quaternion angleToApply = Quaternion.AngleAxis(i, gunBarrel.forward);
+            Vector3 vectorAngleToOffset = new Vector2(Mathf.Cos(i), Mathf.Sin(i)) * Mathf.Sqrt(touhouDistanceGunAwayFromCenter);
+            GameObject extra = Instantiate(gameObject, transform.parent.position + vectorAngleToOffset, angleToApply, transform.parent);
+            extraGuns.Add(extra);
+        }
+    }
+
+    public void DeactivateTouhouMode()
+    {
+        if (!touhouMode) { return; }
+        touhouMode = false;
+        while (extraGuns.Count > 0)
+        {
+            GameObject extra = extraGuns[0];
+            extraGuns.RemoveAt(0);
+            Destroy(extra);
+        }
     }
 }

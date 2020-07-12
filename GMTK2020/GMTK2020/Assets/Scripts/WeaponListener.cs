@@ -57,6 +57,30 @@ public class WeaponListener : MonoBehaviour, UpdateableEntity
                     wepon.numberOfBullets++;
                 }
                 break;
+            case CardType.EveryoneAllDirectionShoot:
+                if(wepon != null)
+                {
+                    if(wepon.touhouMode) { wepon.DeactivateTouhouMode(); }
+                    else { wepon.ActivateTouhouMode(); }
+                }
+                if(enemyGun != null)
+                {
+                    if (enemyGun.touhouMode) { enemyGun.DeactivateTouhouMode(); }
+                    else { enemyGun.ActivateTouhouMode(); }
+                }
+                break;
+            case CardType.EveryoneSpinning:
+                if (enemyGun != null)
+                {
+                    RotateTowardsPlayer enemyFollow = enemyGun.transform.parent.GetComponent<RotateTowardsPlayer>();
+                    enemyFollow.isSpinning = !enemyFollow.isSpinning;
+                }
+                if (wepon != null)
+                {
+                    RotateTowardsMouse follow = wepon.transform.parent.GetComponent<RotateTowardsMouse>();
+                    follow.isSpinning = !follow.isSpinning;
+                }
+                break;
         }
     }
 }
