@@ -78,8 +78,11 @@ public class EnemyMovement : MonoBehaviour
 
     public void StopMoving()
     {
-        rb2d.velocity = Vector2.zero;
-        rb2d.angularVelocity = 0f;
+        if(rb2d != null)
+        {
+            rb2d.velocity = Vector2.zero;
+            rb2d.angularVelocity = 0f;
+        }
     }
 
 

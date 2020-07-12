@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     public Transform gunBarrel;
     public float recoilForce;
     public Rigidbody2D rb;
+    public int allowedBulletBounces = 0;
 
     private float timer;
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class Weapon : MonoBehaviour
         {
             GameObject spawnedBullet;   
             spawnedBullet = Instantiate(bulletToSpawn, gunBarrel.position, gunBarrel.rotation);
+            spawnedBullet.GetComponent<BulletBehavior>().bulletBouncesAllowed = allowedBulletBounces;
             BulletBehavior Bbehave = spawnedBullet.GetComponent<BulletBehavior>();
             Bbehave.updateDamage(damage);
             timer = 0;

@@ -16,7 +16,6 @@ public class BulletBehavior : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * BulletSpeed;
-        richochet = false;
     }
 
     // Update is called once per frame
@@ -37,14 +36,14 @@ public class BulletBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<EnemyHealth>().takeDamage(damage);
             Destroy(gameObject);
         }
 
-        if (richochet == false)
+        numberOfBounces++;
+        if(numberOfBounces > bulletBouncesAllowed)
         {
             Destroy(gameObject);
         }
