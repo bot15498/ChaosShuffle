@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
     public float recoilStopTime = 0.1f;
     public int numberOfBullets = 1;
     public float angleDiffBetweenBullets = 20f;
+    public bool touhouMode = false;
 
     private float timer;
     // Start is called before the first frame update
@@ -36,7 +37,6 @@ public class Weapon : MonoBehaviour
             for (float i=0;i<numberOfBullets;i++)
             {
                 Quaternion angleToApply = Quaternion.AngleAxis(startAngle + i * angleDiffBetweenBullets, gunBarrel.forward);
-                Debug.Log(startAngle + i * angleDiffBetweenBullets);
                 GameObject spawnedBullet;
                 spawnedBullet = Instantiate(bulletToSpawn, gunBarrel.position, gunBarrel.rotation * angleToApply);
                 spawnedBullet.GetComponent<BulletBehavior>().bulletBouncesAllowed = allowedBulletBounces;
@@ -65,5 +65,10 @@ public class Weapon : MonoBehaviour
     public void changeBulletType(GameObject bullettoSwitch)
     {
         bulletToSpawn = bullettoSwitch;
+    }
+
+    public void ActivateTouhouMode()
+    {
+
     }
 }

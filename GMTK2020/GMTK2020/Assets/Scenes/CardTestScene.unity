@@ -542,6 +542,7 @@ MonoBehaviour:
   recoilStopTime: 0.1
   numberOfBullets: 1
   angleDiffBetweenBullets: 20
+  touhouMode: 0
 --- !u!4 &545190775
 Transform:
   m_ObjectHideFlags: 0
@@ -940,6 +941,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 661366116197561096, guid: 36fb541d3601d29439fcd5c9e695e401,
+        type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3353310909333677515, guid: 36fb541d3601d29439fcd5c9e695e401,
         type: 3}
       propertyPath: behaviorValue
@@ -1149,6 +1155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0954a3d66af7ce4cb4c6880f9a81a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopkeeper: {fileID: 8002266634687736281, guid: 5027732129fe7334da60a86464b831a1,
+    type: 3}
+  shopkeeperDropRange: 1
   explosionPrefab: {fileID: 8032033374618254563, guid: c28076f2370cbbe4a9d32a1896e37966,
     type: 3}
   numberOfExplosionsInCarpetBomber: 10
