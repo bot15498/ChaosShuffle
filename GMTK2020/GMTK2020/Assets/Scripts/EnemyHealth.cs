@@ -32,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damageToTake;
         if(currentHealth <= 0)
         {
+            
             DIE();
         }
     }
@@ -50,8 +51,16 @@ public class EnemyHealth : MonoBehaviour
             boom.transform.position = transform.position;
             boom.GetComponent<Explosion>().Explode();
         }
-        Em.minusEnemy();
+        
         Instantiate(money, transform.position, transform.rotation * Quaternion.Euler(0, 0, Random.Range(0, 360)));
         Destroy(gameObject);
+    }
+
+
+    private void OnDestroy()
+    {
+
+        Em.minusEnemy();
+
     }
 }
