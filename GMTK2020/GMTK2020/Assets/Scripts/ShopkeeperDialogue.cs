@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopkeeperDialogue : MonoBehaviour
 {
+    public Text openShopPrompt;
 	public ShopkeeperMenu shopScreen;
 	public CardManager cardManager;
 	[SerializeField]
@@ -50,7 +52,8 @@ public class ShopkeeperDialogue : MonoBehaviour
 				Time.timeScale = 0f;
 				wepon.canShoot = false;
 				shopOpen = true;
-				shopScreen.ShowShop(easyCard, medCard, hardCard);
+                openShopPrompt.text = "Press E to Close Shop";
+                shopScreen.ShowShop(easyCard, medCard, hardCard);
 			}
 			else
 			{
@@ -81,10 +84,14 @@ public class ShopkeeperDialogue : MonoBehaviour
 	public void OnTriggerEnter2D(Collider2D collision)
 	{
 		canOpenShop = true;
-	}
+        openShopPrompt.gameObject.SetActive(true);
+        openShopPrompt.text = "Press E to Open Shop";
+    }
 
 	public void OnTriggerExit2D(Collider2D collision)
 	{
 		canOpenShop = false;
-	}
+        openShopPrompt.gameObject.SetActive(false);
+        openShopPrompt.text = "Press E to Open Shop";
+    }
 }

@@ -36,7 +36,6 @@ public class CardUIHolder : MonoBehaviour
         // make the prefab
         GameObject obj = Instantiate(cardPrefab);
         obj.transform.SetParent(transform);
-        obj.transform.localScale = Vector3.one;
         obj.transform.localPosition = new Vector2(0, posOffset);
         //put the card data on it
         CardUI cardUI = obj.GetComponent<CardUI>();
@@ -57,7 +56,6 @@ public class CardUIHolder : MonoBehaviour
         // make the prefab
         GameObject obj = Instantiate(cardPrefab);
         obj.transform.SetParent(transform);
-        obj.transform.localScale = Vector3.one;
         obj.transform.localPosition = new Vector2(0, posOffset);
         //put the card data on it
         CardUI cardUI = obj.GetComponent<CardUI>();

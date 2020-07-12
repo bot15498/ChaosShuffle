@@ -141,6 +141,12 @@ MonoBehaviour:
     desc: Environment gets brighter.
     count: 1
     diff: 0
+  - cardType: 39
+    name: Quick Draw
+    image: {fileID: 21300000, guid: 183796a0b5134074ba9cee7b4b88faab, type: 3}
+    desc: Time between draws is reduced.
+    count: 1
+    diff: 0
   allPlayerCards:
   - cardType: 0
     name: Player Health Up
