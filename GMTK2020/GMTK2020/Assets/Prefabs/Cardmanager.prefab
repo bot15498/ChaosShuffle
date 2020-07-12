@@ -58,12 +58,6 @@ MonoBehaviour:
     desc: Everyone attacks continuously with high recoil
     count: 1
     diff: 0
-  - cardType: 6
-    name: Treasury
-    image: {fileID: 21300000, guid: b80a462ba73bdd84c91964cebd6c0e77, type: 3}
-    desc: Attacks do no damage but give money
-    count: 1
-    diff: 0
   - cardType: 7
     name: Ricochet 2
     image: {fileID: 21300000, guid: 198c790ceb612414185d417b79a509cf, type: 3}
@@ -236,4 +230,5 @@ MonoBehaviour:
   activeEnvCards: []
   currEnvCards: []
   currPlayerCards: []
+  TimerImage: {fileID: 0}
   drawInterval: 5

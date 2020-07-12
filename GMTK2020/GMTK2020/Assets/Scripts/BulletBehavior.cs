@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
+    public GameObject money;
     public GameObject explosion;
+    public bool dropMoney = false;
     public bool richochet;
     public float damage;
     public float BulletSpeed;
     public int bulletBouncesAllowed = 0;
     public bool istracking = false;
     public bool explosive = false;
+    public string originTag = "";
 
     private int numberOfBounces;
     Rigidbody2D rb;
@@ -42,10 +45,22 @@ public class BulletBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && originTag != "Enemy")
         {
             collision.gameObject.GetComponent<EnemyHealth>().takeDamage(damage);
+            if(dropMoney)
+            {
+                Vector3 randomPoint = Random.insideUnitCircle *0.8f;
+                Instantiate(money, transform.position + randomPoint, transform.rotation * Quaternion.Euler(0, 0, Random.Range(0, 360)));
+            }
             Destroy(gameObject);
+        }
+
+        if(collision.gameObject.tag == "Player" && originTag != "Player")
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().MinusHealth(damage);
+            Destroy(gameObject);
+            return;
         }
 
         if(explosive)

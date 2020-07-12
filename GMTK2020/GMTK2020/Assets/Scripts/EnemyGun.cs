@@ -38,6 +38,7 @@ public class EnemyGun : MonoBehaviour
             spawnedBullet.GetComponent<BulletBehavior>().bulletBouncesAllowed = allowedBulletBounces;
             BulletBehavior Bbehave = spawnedBullet.GetComponent<BulletBehavior>();
             Bbehave.updateDamage(damage);
+            Bbehave.originTag = gameObject.tag;
             timer = 0;
         }
         if(onlyShoot)

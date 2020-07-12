@@ -55,6 +55,7 @@ public class IconHolder : MonoBehaviour
                 case CardType.PlayerArrowKeys:
                 case CardType.PlayerHeatSeaking:
                 case CardType.EveryoneAllDirectionShoot:
+                case CardType.PlayerDamageGivesGold:
                 case CardType.EveryoneSnakeMovement:
                     if(card.count % 2 == 0) { KillIcon(card); }
                     break;
