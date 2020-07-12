@@ -11,15 +11,20 @@ public class EnemyMovement : MonoBehaviour
     public int behaviorValue = 1;
     public float speed = 2.5f;
     public float icySpeed = 3f;
+    public Transform arm;
     Transform playerTransform;
     public float RetreatDistance;
     public float stopDistance;
     Rigidbody2D rb2d;
+    bool facingRight;
+    SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        sr = GetComponent<SpriteRenderer>();
         rb2d = GetComponent<Rigidbody2D>();
+        facingRight = true;
     }
 
     // Update is called once per frame
@@ -39,6 +44,35 @@ public class EnemyMovement : MonoBehaviour
 
                     break;
             }
+        }
+
+        WeaponFlipping();
+    }
+
+    void WeaponFlipping()
+    {
+        //current mouse position
+        
+        var delta = playerTransform.position - transform.position;
+
+        //CharacterFlipping
+        if (delta.x >= 0 && !facingRight)
+        { // mouse is on right side of player
+
+        
+             sr.flipX = false;
+            //WeaponSprite.flipY = false;
+            facingRight = true;
+
+        }
+        else if (delta.x < 0 && facingRight)
+        { // mouse is on left side
+           
+            sr.flipX = true;
+            //WeaponSprite.flipY = true;
+
+
+            facingRight = false;
         }
     }
 

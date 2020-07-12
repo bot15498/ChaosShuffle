@@ -35,7 +35,7 @@ public class BulletBehavior : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.GetComponent<EnemyHealth>() != null)
+        if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<EnemyHealth>().takeDamage(damage);
             Destroy(gameObject);

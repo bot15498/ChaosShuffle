@@ -32,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
 
     void DIE()
     {
-
+        Em.minusEnemy();
+        Destroy(gameObject);
     }
 }
