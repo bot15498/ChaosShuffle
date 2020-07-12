@@ -23,12 +23,14 @@ public class Weapon : MonoBehaviour
     public int touhouModeGuns = 8;
     public float touhouDistanceGunAwayFromCenter = 0.706f;
     public bool canLifesteal = false;
+    AudioSource As;
 
     private float timer;
     private List<GameObject> extraGuns = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
+        As = GetComponent<AudioSource>();
         timer = 0;
     }
 
@@ -38,6 +40,7 @@ public class Weapon : MonoBehaviour
         timer += Time.deltaTime;
         if (canShoot && (Input.GetAxis("Fire1") > 0.1f || onlyShoot) && timer >= fireRate)
         {
+            As.Play();
             float startAngle = (180f - (numberOfBullets - 1) * angleDiffBetweenBullets) / 2f - 90f;
             for (float i = 0; i < numberOfBullets; i++)
             {

@@ -10,6 +10,7 @@ public class MoneyOncontact : MonoBehaviour
     void Start()
     {
         Mm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MoneyManager>();
+        
     }
 
     // Update is called once per frame
@@ -23,6 +24,7 @@ public class MoneyOncontact : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Mm.addMoney();
+            
             Destroy(gameObject);
         }
     }
@@ -32,6 +34,7 @@ public class MoneyOncontact : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Mm.addMoney();
+            
             Destroy(gameObject);
         }
     }

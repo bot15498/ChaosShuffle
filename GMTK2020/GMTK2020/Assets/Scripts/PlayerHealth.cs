@@ -15,12 +15,15 @@ public class PlayerHealth : MonoBehaviour
     public Image HealthBar;
     public float healAmount;
     public GameObject loseCanvas;
-
+    AudioSource As;
+    public AudioClip HeartClip;
+    public AudioClip moneyclip;
     private MoneyManager mm;
 
     // Start is called before the first frame update
     void Start()
     {
+        As = GetComponent<AudioSource>();
         currentHealth = MaxHealth;
         CanTakeDamage = true;
         mm = FindObjectOfType<MoneyManager>();
@@ -68,12 +71,20 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        if(collision.gameObject.tag == "Money")
+        {
+            As.clip = moneyclip;
+            As.Play();
+        }
+
         if(collision.gameObject.tag == "Heart")
         {
             if (currentHealth != MaxHealth)
             {
                 addHealth(healAmount);
-
+                As.clip = HeartClip;
+                As.Play();
                 Destroy(collision.gameObject);
             }
             

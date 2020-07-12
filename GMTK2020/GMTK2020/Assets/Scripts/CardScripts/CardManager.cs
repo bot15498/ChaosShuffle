@@ -56,6 +56,7 @@ public class CardManager : MonoBehaviour
 	public List<Card> currEnvCards = new List<Card>();
 	public List<Card> currPlayerCards = new List<Card>();
     public Image TimerImage;
+    AudioSource As;
 
 	public float drawInterval = 10f;
 	private float timeRemaining;
@@ -64,6 +65,7 @@ public class CardManager : MonoBehaviour
 
 	void Start()
 	{
+        As = GetComponent<AudioSource>();
 		timeRemaining = drawInterval;
 
 		foreach (Card card in allEnvCards)
@@ -84,6 +86,7 @@ public class CardManager : MonoBehaviour
 		if (timeRemaining <= 0)
 		{
 			timeRemaining = drawInterval;
+            As.Play();
 			DrawNewCard();
 		}
 

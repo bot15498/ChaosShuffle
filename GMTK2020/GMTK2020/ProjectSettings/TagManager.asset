@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Bullet
   - Heart
+  - Money
   layers:
   - Default
   - TransparentFX
