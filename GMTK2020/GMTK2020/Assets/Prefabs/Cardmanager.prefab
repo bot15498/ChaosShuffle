@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab2ab41efc3de5449b0322da888716fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
   cardUIHolder: {fileID: 0}
   allEnvCards:
   - cardType: 1
@@ -213,12 +212,6 @@ MonoBehaviour:
     name: Vending Machine
     image: {fileID: 21300000, guid: d753fcf1b4778fb4c9b00d5f05130a4a, type: 3}
     desc: Summon Shopkeeper to current room
-    count: 1
-    diff: 1
-  - cardType: 30
-    name: Heat Seeking
-    image: {fileID: 21300000, guid: 26b4af7eab2f9df4191040bac66c6bdc, type: 3}
-    desc: Player projectiles lock on a target
     count: 1
     diff: 1
   - cardType: 31
