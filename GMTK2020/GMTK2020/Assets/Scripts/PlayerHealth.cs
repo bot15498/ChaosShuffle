@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public Text HealthText;
     public Image HealthBar;
     public float healAmount;
+    public GameObject loseCanvas;
 
     private MoneyManager mm;
 
@@ -82,5 +83,9 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("ur fucking ded kiddo");
+        loseCanvas.SetActive(true);
+        Destroy(gameObject);
+
+
     }
 }

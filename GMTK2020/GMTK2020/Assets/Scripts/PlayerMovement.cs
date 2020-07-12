@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float lastValidV = 1f;
     private bool isKnockback = false;
     private Vector2 currPos;
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         facingRight = true;
         currPos = transform.GetChild(0).GetChild(0).GetChild(0).localPosition;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -48,11 +50,26 @@ public class PlayerMovement : MonoBehaviour
         {
             h = Input.GetAxisRaw("Horizontal");
             v = Input.GetAxisRaw("Vertical");
+            if (h != 0 || v != 0)
+            {
+                anim.SetBool("IsWalking", true);
+            }else if (h == 0 && v == 0)
+            {
+                anim.SetBool("IsWalking", false);
+            }
         }
         else
         {
             h = Input.GetAxisRaw("Horizontal2");
             v = Input.GetAxisRaw("Vertical2");
+            if (h != 0 || v != 0)
+            {
+                anim.SetBool("IsWalking", true);
+            }
+            else if (h == 0 && v == 0)
+            {
+                anim.SetBool("IsWalking", false);
+            }
         }
 
         if (mirrored)
