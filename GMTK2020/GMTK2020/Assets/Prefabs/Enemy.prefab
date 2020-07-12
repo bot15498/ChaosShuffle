@@ -409,6 +409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112e958d891991140a047605a882dd93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 8032033374618254563, guid: c28076f2370cbbe4a9d32a1896e37966,
+    type: 3}
 --- !u!61 &6039611636579277370
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -521,6 +523,7 @@ GameObject:
   - component: {fileID: 5822689838067320969}
   - component: {fileID: 5822689838067320968}
   - component: {fileID: 5822689838067320975}
+  - component: {fileID: 1890017006608802887}
   m_Layer: 0
   m_Name: Enemy Gun
   m_TagString: Untagged
@@ -606,10 +609,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canShoot: 1
+  onlyShoot: 0
   damage: 0
   fireRate: 1
+  knockbackForce: 200
+  knockbackTimeWait: 0.3
   bulletToSpawn: {fileID: 6371565790324439834, guid: 675bca5674271644ebf614273176fb0f,
     type: 3}
   gunBarrel: {fileID: 5822689837870842215}
   recoilForce: 0
-  rb: {fileID: 8555020110488498676}
+  movement: {fileID: 3353310909333677515}
+  allowedBulletBounces: 0
+--- !u!114 &1890017006608802887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822689838067320970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb137b62ed8be9a46b340534a05f0101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemyListener : MonoBehaviour, UpdateableEntity
 {
+    public GameObject explosion;
     private EnemyMovement movement;
     private EnemyHealth health;
     private CardManager cardManager;
     private bool wallLava = false;
+    private bool isInvisible = false;
 
     public void ReceiveUpdate(Card activeCard)
     {
@@ -35,6 +37,25 @@ public class EnemyListener : MonoBehaviour, UpdateableEntity
                 break;
             case CardType.EveryoneSnakeMovement:
                 movement.snakeMovement = !movement.snakeMovement;
+                break;
+            case CardType.EveryoneExplodingBodies:
+                health.ToggleExplodeOnDeath(explosion);
+                break;
+            case CardType.EnemiesInvisible:
+                isInvisible = !isInvisible;
+                SpriteRenderer[] srs = transform.GetComponentsInChildren<SpriteRenderer>();
+                foreach(SpriteRenderer sr in srs)
+                {
+                    if (isInvisible)
+                    {
+                        sr.enabled = false;
+                    }
+                    else
+                    {
+                        sr.enabled = true;
+                    }
+                }
+                transform.GetComponent<SpriteRenderer>().enabled = !isInvisible;
                 break;
         }
     }

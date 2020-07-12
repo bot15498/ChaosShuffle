@@ -96,7 +96,7 @@ MonoBehaviour:
     diff: 0
   - cardType: 18
     name: Explosive Corpses
-    image: {fileID: 21300000, guid: daec270862689654a880f6b08ddd08db, type: 3}
+    image: {fileID: 21300000, guid: 0376aafb0a09bc34ab3a5058fe5c1785, type: 3}
     desc: Bodies explode on death.
     count: 1
     diff: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
     diff: 0
   - cardType: 29
     name: Carpet Bomber
-    image: {fileID: 21300000, guid: 0376aafb0a09bc34ab3a5058fe5c1785, type: 3}
+    image: {fileID: 21300000, guid: 171e819aa74e7254ba25391eea6669be, type: 3}
     desc: Explosions are dropped throughout the room.
     count: 1
     diff: 0

@@ -76,10 +76,29 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    public void AddKnockback(Vector2 direction, float force, float duration)
+    {
+        canMove = false;
+        StopMoving();
+        rb2d.AddForce(direction.normalized * force);
+        StartCoroutine(StopMoving(duration));
+    }
+
+    private IEnumerator StopMoving(float duration)
+    {
+        yield return new WaitForSecondsRealtime(duration);
+        canMove = true;
+        StopMoving();
+        yield return null;
+    }
+
     public void StopMoving()
     {
-        rb2d.velocity = Vector2.zero;
-        rb2d.angularVelocity = 0f;
+        if(rb2d != null)
+        {
+            rb2d.velocity = Vector2.zero;
+            rb2d.angularVelocity = 0f;
+        }
     }
 
 

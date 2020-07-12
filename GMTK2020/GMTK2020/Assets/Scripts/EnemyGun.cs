@@ -5,12 +5,16 @@ using UnityEngine;
 public class EnemyGun : MonoBehaviour
 {
     public bool canShoot = true;
+    public bool onlyShoot = false;
     public float damage;
     public float fireRate;
+    public float knockbackForce = 500f;
+    public float knockbackTimeWait = 0.3f;
     public GameObject bulletToSpawn;
     public Transform gunBarrel;
     public float recoilForce;
-    public Rigidbody2D rb;
+    public EnemyMovement movement;
+    public int allowedBulletBounces;
 
     private float timer;
     // Start is called before the first frame update
@@ -23,13 +27,18 @@ public class EnemyGun : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (canShoot && timer >= fireRate)
+        if ((canShoot || onlyShoot) && timer >= fireRate)
         {
             GameObject spawnedBullet;
             spawnedBullet = Instantiate(bulletToSpawn, gunBarrel.position, gunBarrel.rotation);
+            spawnedBullet.GetComponent<BulletBehavior>().bulletBouncesAllowed = allowedBulletBounces;
             BulletBehavior Bbehave = spawnedBullet.GetComponent<BulletBehavior>();
             Bbehave.updateDamage(damage);
             timer = 0;
+        }
+        if(onlyShoot)
+        {
+            movement.AddKnockback(transform.position - gunBarrel.position, knockbackForce, knockbackTimeWait);
         }
     }
 
@@ -41,12 +50,6 @@ public class EnemyGun : MonoBehaviour
     public void ChangeDamage(float damageChange)
     {
         damage += damageChange;
-    }
-
-    void Recoil()
-    {
-        Vector3 force = -gunBarrel.transform.right * recoilForce;
-        rb.AddForce(force);
     }
 
     public void changeBulletType(GameObject bullettoSwitch)
