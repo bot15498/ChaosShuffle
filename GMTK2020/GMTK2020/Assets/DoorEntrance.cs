@@ -34,7 +34,7 @@ public class DoorEntrance : MonoBehaviour
                 {
                     Rm.setEntranceDoor(gameObject.transform.GetChild(0).gameObject);
                     Rm.createRoom(gameObject);
-
+                    
                     teleportDestination = Rm.exitdoor.transform;
 
                     SpawnedRoom = true;

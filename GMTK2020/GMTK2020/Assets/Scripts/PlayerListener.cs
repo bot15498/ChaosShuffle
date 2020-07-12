@@ -50,7 +50,7 @@ public class PlayerListener : MonoBehaviour, UpdateableEntity
                 movement.mirrored = !movement.mirrored;
                 break;
             case CardType.PlayerDamageIncrease:
-                wepon.damage += 10;
+                wepon.damage += 1;
                 break;
             case CardType.PlayerFireRateIncrease:
                 wepon.fireRate -= 0.1f;
