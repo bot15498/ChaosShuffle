@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public bool CanTakeDamage;
     public Text HealthText;
     public Image HealthBar;
+    public float healAmount;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HealthText.text = currentHealth.ToString();
+        HealthText.text = currentHealth.ToString() + "/" + MaxHealth.ToString();
         HealthBar.fillAmount = currentHealth / MaxHealth;
     }
 
@@ -51,6 +52,21 @@ public class PlayerHealth : MonoBehaviour
                 Die();
 
             }
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Heart")
+        {
+            if (currentHealth != MaxHealth)
+            {
+                addHealth(healAmount);
+
+                Destroy(collision.gameObject);
+            }
+            
         }
     }
 

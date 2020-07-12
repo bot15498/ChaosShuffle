@@ -55,6 +55,7 @@ public class CardManager : MonoBehaviour
 	public List<Card> activeEnvCards = new List<Card>();
 	public List<Card> currEnvCards = new List<Card>();
 	public List<Card> currPlayerCards = new List<Card>();
+    public Image TimerImage;
 
 	[SerializeField]
 	private float drawInterval = 10f;
@@ -74,8 +75,9 @@ public class CardManager : MonoBehaviour
 
 	void Update()
 	{
-		// updates UI and draws new card every set amount of time.a
-		timeRemaining -= Time.deltaTime;
+        // updates UI and draws new card every set amount of time.a
+        TimerImage.fillAmount = timeRemaining / drawInterval;
+        timeRemaining -= Time.deltaTime;
 		timerText.text = ((int)timeRemaining).ToString();
 		if (timeRemaining <= 0)
 		{
